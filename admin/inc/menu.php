@@ -7,9 +7,8 @@
             </a>
             <div class="sidebar-content">
                 <div class="sidebar-user">
-                    <img src="../theme/img/avatars/param3.png" alt="no image">
-                    <div class="fw-bold">Param Patel</div>
-                    <small>Admin panel</small>
+                    <h3 class="fw-bold">Param Patel</h3>
+                    <span>Admin panel</span>
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">

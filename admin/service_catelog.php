@@ -9,55 +9,56 @@ require_once("inc/header.php");
     </div>
     <div class="wrapper">
         <?php
-		require_once("inc/menu.php");
+		require_once("inc/service_menu.php");
 		?>
         <div class="main">
-           <?php
-           require_once("inc/logout.php")
-           ?>
+            <?php
+            require_once("inc/logout.php");
+            ?>
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
                         <h1 class="header-title">
-                            Category Management
+                            Catalogue Management 
                         </h1>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h1 class="card-title mb-0">Insert category</h1>
+                                    <h1 class="card-title mb-0">Add Catalogue</h1>
                                 </div>
                                 <div class="card-body">
-                                    <div class="my-5">
+                                    <div class="my-5">&nbsp;
                                         <form action="" method="POST" name="form1">
                                             <div class="row">
-                                                <div class="col-6">
-                                                    <div class="mb-3">
-                                                        <label for="" class="form-label">
-                                                            Enter title here
-                                                        </label>
-                                                        <input type="text" name="title" class="form-control" required>
-                                                    </div>
+                                                <div class="col-6 mb-5">
+                                                    <label for="" class="form-label">
+                                                        Enter title
+                                                    </label>
+                                                    <input type="text" class="form-control" name="title" required placeholder="Enter Title for catalogue">
                                                 </div>
-                                                <div class="col-6">
-                                                    <div class="mb-3">
-                                                        <label for="" class="form-label">
-                                                            Select photo for category
-                                                        </label>
-                                                        <input type="file" name="photo" class="form-control" required>
-                                                    </div>
+                                                <div class="col-6 mb-5">
+                                                    <label for="" class="form-label">
+                                                    Enter details
+                                                     </label>
+                                                     <textarea class="form-control" placeholder="Textarea" name="description" rows="1"></textarea>
                                                 </div>
-                                                <div class="mb-3 col-12">
-                                                    <label class="form-label">Enter description of category</label>
-                                                    <textarea class="form-control" placeholder="Textarea"
-                                                        name="description" required rows="2"></textarea >
+                                                <div class="col-6 mb-5">
+                                                    <label for="" class="form-label">
+                                                        Enter amount
+                                                    </label>
+                                                    <input type="number" class="form-control" name="amount" required placeholder="Enter amount for catalogue">
                                                 </div>
-                                                <div class="mt-2 text-end">
-                                                    <input type="submit" name="submit" class="btn btn-primary"
-                                                        value="Save category">
-                                                    <input type="reset" name="reset" class="btn btn-danger"
-                                                        value="Cancel">
+                                                <div class="col-6 mb-5">
+                                                    <label for="" class="form-label">
+                                                        Select photo
+                                                    </label>
+                                                    <input type="file" class="form-control" name="image" required >
+                                                </div>
+                                                <div class="text-end ">
+                                                    <input class="btn btn-primary" type="submit" value="Save">
+                                                    <input class="btn btn-danger" type="submit" value="Reset">
                                                 </div>
                                             </div>
                                         </form>
@@ -81,23 +82,26 @@ require_once("inc/header.php");
                                                     <th>Title</th>
                                                     <th>Image</th>
                                                     <th>Description</th>
+                                                    <th>Amount</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td>1</td>
                                                     <td width="15%">Param patel</td>
-                                                  
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
+                                                    <td>45000</td>
+                                                    
                                                     
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
                                                     <td width="15%">Param patel</td>
-                                                    
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
+                                                    <td>50000</td>
+                                                   
                                                     
                                                 </tr>
                                             </tbody>

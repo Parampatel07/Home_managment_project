@@ -7,22 +7,21 @@
             </a>
             <div class="sidebar-content">
                 <div class="sidebar-user">
-                    <img src="../theme/img/avatars/param3.png" alt="no image">
-                    <div class="fw-bold">Param Patel</div>
-                    <small>Service panel</small>
+                    <h3 class="fw-bold">Service panel</h3>
+                    <span>Param Patel</span>
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">
                         Main
                     </li>
                     <li class="sidebar-item">
-                        <a  href="forgot_password.php"  class="sidebar-link ">
-                            <i class="align-middle "></i> <span class="align-middle">Dashboards</span>
+                        <a  href="#"  class="sidebar-link ">
+                            <i class="align-middle "></i> <h4 class="align-middle">Dashboards</h4>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a  href="category_management.php" class="sidebar-link collapsed">
-                            <i class="align-middle "></i> <span class="align-middle"> </span>
+                        <a  href="service_catelog.php" class="sidebar-link collapsed">
+                            <i class="align-middle "></i> <h4 class="align-middle">Catelog management</h4>
                         </a>
                     </li>
                 </ul>
