@@ -90,7 +90,6 @@ require_once("inc/header.php");
                                                   
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
-                                                    
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
@@ -98,7 +97,6 @@ require_once("inc/header.php");
                                                     
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
-                                                    
                                                 </tr>
                                             </tbody>
                                         </table>

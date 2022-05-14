@@ -43,7 +43,7 @@ require_once("inc/header.php");
                                                         <label for="" class="form-label">
                                                             Select logo
                                                         </label>
-                                                        <input type="file" name="logo" class="form-control" required>
+                                                        <input type="file" accept="image/*" name="logo" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-4 mb-5">

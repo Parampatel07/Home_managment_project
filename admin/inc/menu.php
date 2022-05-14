@@ -24,6 +24,11 @@
                             <i class="align-middle "></i> <span class="align-middle">Category management </span>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a  href="feedback.php" class="sidebar-link collapsed">
+                            <i class="align-middle "></i> <span class="align-middle">Feedback management </span>
+                        </a>
+                    </li>
                 </ul>
             </div>    
         </nav>

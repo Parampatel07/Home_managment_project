@@ -13,7 +13,7 @@ require_once("inc/header.php");
 		?>
         <div class="main">
             <?php
-            require_once("inc/logout.php");
+            require_once("inc/service_logout.php");
             ?>
             <main class="content">
                 <div class="container-fluid">
@@ -54,7 +54,7 @@ require_once("inc/header.php");
                                                     <label for="" class="form-label">
                                                         Select photo
                                                     </label>
-                                                    <input type="file" class="form-control" name="image" required >
+                                                    <input type="file" class="form-control" accept="image/*" name="image" required >
                                                 </div>
                                                 <div class="text-end ">
                                                     <input class="btn btn-primary" type="submit" value="Save">
@@ -101,8 +101,6 @@ require_once("inc/header.php");
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
                                                     <td>50000</td>
-                                                   
-                                                    
                                                 </tr>
                                             </tbody>
                                         </table>

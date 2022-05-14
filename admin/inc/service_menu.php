@@ -21,7 +21,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a  href="service_catelog.php" class="sidebar-link collapsed">
-                            <i class="align-middle "></i> <h4 class="align-middle">Catelog management</h4>
+                            <i class="align-middle "></i> <h4 class="align-middle">Catalogue  management</h4>
                         </a>
                     </li>
                 </ul>
