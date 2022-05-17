@@ -1,296 +1,312 @@
-<header class="header_area">
-    <!--header top start-->
-    <div class="header_top">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4">
-                    <div class="welcome_text">
-                        <p>Welcome to <span>Electronics Store</span> </p>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="top_right text-right">
-                        <ul>
-                            <li class="currency"><a href="#"><i class="fa fa-dollar"></i> US Dollar <i
-                                        class="zmdi zmdi-caret-down"></i></a>
-                                <ul class="dropdown_currency">
-                                    <li><a href="#">EUR – Euro</a></li>
-                                    <li><a href="#">GBP – British Pound</a></li>
-                                    <li><a href="#">INR – India Rupee</a></li>
-                                </ul>
-                            </li>
-                            <li class="language"><a href="#"><i class="zmdi zmdi-dribbble"></i> English1 <i
-                                        class="zmdi zmdi-caret-down"></i></a>
-                                <ul class="dropdown_language">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">Germany</a></li>
-                                </ul>
-                            </li>
-                            <li class="top_links"><a href="#"><i class="zmdi zmdi-account"></i> My account <i
-                                        class="zmdi zmdi-caret-down"></i></a>
-                                <ul class="dropdown_links">
-                                    <li><a href="pallas front end\htmldemo.net\pallas\pallas/checkout.html">Checkout
-                                        </a></li>
-                                    <li><a href="pallas front end\htmldemo.net\pallas\pallas/my-account.html">My Account
-                                        </a></li>
-                                    <li><a href="pallas front end\htmldemo.net\pallas\pallas/cart.html">Shopping
-                                            Cart</a></li>
-                                    <li><a href="pallas front end\htmldemo.net\pallas\pallas/wishlist.html">Wishlist</a>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- HEADER-AREA START -->
+        <header class="header-area">
+            <!-- Header-Top Start -->
+            <div class="header-top d-none d-md-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="header-top-left text-start">
+                                <ul>
+                                    <li>
+                                        <i class="sp-phone"></i>
+                                        <span>+019 (111) 25184203</span>
+                                    </li>
+                                    <li>
+                                        <i class="sp-email"></i>
+                                        <span>Company@domain.com</span>
                                     </li>
                                 </ul>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!--header top start-->
-    <!--header center area start-->
-    <div class="header_middle">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3">
-                    <div class="logo">
-                        <a href="#"><img
-                                src="pallas front end\htmldemo.net\pallas\pallas/assets/img/logo/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="header_middle_inner">
-                        <div class="search-container">
-                            <form action="#">
-                                <div class="hover_category">
-                                    <select class="select_option" name="select" id="categori">
-                                        <option selected value="1">All Categories</option>
-                                        <option value="2">Accessories</option>
-                                        <option value="3">Accessories & More</option>
-                                        <option value="4">Butters & Eggs</option>
-                                        <option value="5">Camera & Video </option>
-                                        <option value="6">Mornitors</option>
-                                        <option value="7">Tablets</option>
-                                        <option value="8">Laptops</option>
-                                        <option value="9">Handbags</option>
-                                        <option value="10">Headphone & Speaker</option>
-                                        <option value="11">Herbs & botanicals</option>
-                                        <option value="12">Vegetables</option>
-                                        <option value="13">Shop</option>
-                                        <option value="14">Laptops & Desktops</option>
-                                        <option value="15">Watchs</option>
-                                        <option value="16">Electronic</option>
-                                    </select>
-                                </div>
-                                <div class="search_box">
-                                    <input placeholder="Search product..." type="text">
-                                    <button type="submit"><i class="zmdi zmdi-search"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="mini_cart_wrapper">
-                            <a href="javascript:void(0)"><i class="zmdi zmdi-shopping-basket"></i> <span>2items -
-                                    $213.00</span> </a>
-                            <!--mini cart-->
-                            <div class="mini_cart">
-                                <div class="cart_item">
-                                    <div class="cart_img">
-                                        <a href="#"><img
-                                                src="pallas front end\htmldemo.net\pallas\pallas/assets/img/s-product/product.jpg"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="cart_info">
-                                        <a href="#">Condimentum Watches</a>
-
-                                        <span class="quantity">Qty: 1</span>
-                                        <span class="price_cart">$60.00</span>
-
-                                    </div>
-                                    <div class="cart_remove">
-                                        <a href="#"><i class="ion-android-close"></i></a>
-                                    </div>
-                                </div>
-                                <div class="cart_item">
-                                    <div class="cart_img">
-                                        <a href="#"><img
-                                                src="pallas front end\htmldemo.net\pallas\pallas/assets/img/s-product/product2.jpg"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="cart_info">
-                                        <a href="#">Officiis debitis</a>
-                                        <span class="quantity">Qty: 1</span>
-                                        <span class="price_cart">$69.00</span>
-                                    </div>
-                                    <div class="cart_remove">
-                                        <a href="#"><i class="ion-android-close"></i></a>
-                                    </div>
-                                </div>
-                                <div class="mini_cart_table">
-                                    <div class="cart_total">
-                                        <span>Subtotal:</span>
-                                        <span class="price">$138.00</span>
-                                    </div>
-                                </div>
-
-                                <div class="mini_cart_footer">
-                                    <div class="cart_button">
-                                        <a href="pallas front end\htmldemo.net\pallas\pallas/cart.html">View cart</a>
-                                        <a href="pallas front end\htmldemo.net\pallas\pallas/checkout.html">Checkout</a>
-                                    </div>
-                                </div>
-
                             </div>
-                            <!--mini cart end-->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="header-top-right float-end">
+                                <ul>
+                                    <li><a href="#">Account <span><i class="sp-gear"></i></span></a>
+                                        <ul class="submenu">
+                                            <li><a href="my-account.html">My Account</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="cart.html">Checkout</a></li>
+                                            <li><a href="login.html">Login</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="header-search">
+                                    <form action="#">
+                                        <input type="text" placeholder="Search..." />
+                                        <button type="submit"><i class="sp-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!--header center area end-->
-
-    <!--header middel start-->
-    <div class="header_bottom sticky-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <div class="main_menu header_position">
-                        <nav>
-                            <ul>
-
-                                <li><a href="pallas front end\htmldemo.net\pallas\pallas/index.html"><i
-                                            class="zmdi zmdi-home"></i> home <i class="zmdi zmdi-caret-down"></i></a>
-                                    <ul class="sub_menu">
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index.html">Home 1</a>
+            <!-- Header-Top End -->
+            <!-- Main-Header Start -->
+            <div class="main-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-6">
+                            <div class="logo">
+                                <a href="index.html"><img src="img/logo.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 d-none d-lg-block">
+                            <div class="main-menu float-end">
+                                <nav>
+                                    <ul>
+                                        <li><a href="index.html">home</a>
+                                            <ul class="submenu">
+                                                <li class="submenu-title"><a href="#">Home pages</a></li>
+                                                <li><a href="index.html">Homepage Version 1</a></li>
+                                                <li><a href="index-2.html">Homepage Version 2</a></li>
+                                            </ul>
                                         </li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index-2.html">Home
-                                                2</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index-3.html">Home
-                                                3</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index-4.html">Home
-                                                4</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index-5.html">Home
-                                                5</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index-6.html">Home
-                                                6</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index-7.html">Home
-                                                7</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/index-8.html">Home
-                                                8</a></li>
+                                        <li><a href="shop.html">mens</a></li>
+                                        <li><a href="shop-list.html">womens</a></li>
+                                        <li><a href="shop.html">shop</a>
+                                            <div class="mega-menu">
+                                                <span>
+                                                    <a class="mega-menu-title" href="#">WOMEN CLOTH</a>
+                                                    <a href="#">casual shirt</a>
+                                                    <a href="#">rikke t-shirt</a>
+                                                    <a href="#">mia top</a>
+                                                    <a href="#">mia top</a>
+                                                    <a href="#">muscle tee</a>
+                                                    <a href="#">seine blouse</a>
+                                                </span>
+                                                <span>
+                                                    <a class="mega-menu-title" href="#">MEN CLOTH</a>
+                                                    <a href="#">casual shirt</a>
+                                                    <a href="#">t-shirt</a>
+                                                    <a href="#">t-shirt</a>
+                                                    <a href="#">zeans</a>
+                                                    <a href="#">trousers/ pants </a>
+                                                    <a href="#">sweamwear</a>
+                                                </span>
+                                                <span>
+                                                    <a class="mega-menu-title" href="#">WOMEN JEWELRY</a>
+                                                    <a href="#">necklace</a>
+                                                    <a href="#">samhar cuff</a>
+                                                    <a href="#">samhar cuff</a>
+                                                    <a href="#">samhar cuff</a>
+                                                    <a href="#">nail set</a>
+                                                    <a href="#">drop earrings</a>
+                                                </span>
+                                                <span class="mega-menu-photo">
+                                                    <a href="#"><img src="img/megamenu/1.jpg" alt="" /></a>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li><a href="blog.html">blog</a>
+                                            <ul class="submenu">
+                                                <li class="submenu-title"><a href="#">Blog pages</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="single-blog.html">Single-blog</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- 
+										<li><a href="about.html">about</a></li> -->
+                                        <li><a href="#">Pages</a>
+                                            <ul class="submenu">
+                                                <li class="submenu-title"><a href="#">All pages</a></li>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-list.html">Shop-List</a></li>
+                                                <li><a href="single-product.html">Single Product</a></li>
+                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="login.html">Login</a></li>
+                                                <li><a href="my-account.html">My Account</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="single-blog.html">Single-Blog</a></li>
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="404.html">404</a></li>
+                                                <li><a href="contact.html">Contact Us</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">contact</a></li>
                                     </ul>
-                                </li>
-                                <li class="mega_items"><a
-                                        href="pallas front end\htmldemo.net\pallas\pallas/shop.html"><i
-                                            class="zmdi zmdi-shopping-basket"></i> shop <i
-                                            class="zmdi zmdi-caret-down"></i></a>
-                                    <div class="mega_menu">
-                                        <ul class="mega_menu_inner">
-                                            <li><a href="#">Shop Layouts</a>
-                                                <ul>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/shop-fullwidth.html">Full
-                                                            Width</a></li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/shop-fullwidth-list.html">Full
-                                                            Width list</a></li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/shop-right-sidebar.html">Right
-                                                            Sidebar </a></li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/shop-right-sidebar-list.html">
-                                                            Right Sidebar list</a></li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/shop-list.html">List
-                                                            View</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">other Pages</a>
-                                                <ul>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/cart.html">cart</a>
-                                                    </li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/wishlist.html">Wishlist</a>
-                                                    </li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/checkout.html">Checkout</a>
-                                                    </li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/my-account.html">my
-                                                            account</a></li>
-                                                    <li><a href="pallas front end\htmldemo.net\pallas\pallas/404.html">Error
-                                                            404</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Product Types</a>
-                                                <ul>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/product-details.html">product
-                                                            details</a></li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/product-sidebar.html">product
-                                                            sidebar</a></li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/product-grouped.html">product
-                                                            grouped</a></li>
-                                                    <li><a
-                                                            href="pallas front end\htmldemo.net\pallas\pallas/variable-product.html">product
-                                                            variable</a></li>
-
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="pallas front end\htmldemo.net\pallas\pallas/blog.html"><i
-                                            class="zmdi zmdi-collection-music"></i> blog <i
-                                            class="zmdi zmdi-caret-down"></i></a>
-                                    <ul class="sub_menu pages">
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/blog-details.html">blog
-                                                details</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/blog-fullwidth.html">blog
-                                                fullwidth</a></li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/blog-sidebar.html">blog
-                                                sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="active"><a href="#"><i class="zmdi zmdi-star"></i> pages <i
-                                            class="zmdi zmdi-caret-down"></i></a>
-                                    <ul class="sub_menu pages">
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/about.html">About
-                                                Us</a></li>
-                                        <li><a
-                                                href="pallas front end\htmldemo.net\pallas\pallas/services.html">services</a>
-                                        </li>
-                                        <li><a
-                                                href="pallas front end\htmldemo.net\pallas\pallas/portfolio.html">portfolio</a>
-                                        </li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/faq.html">Frequently
-                                                Questions</a></li>
-                                        <li><a
-                                                href="pallas front end\htmldemo.net\pallas\pallas/contact.html">contact</a>
-                                        </li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/login.html">login</a>
-                                        </li>
-                                        <li><a
-                                                href="pallas front end\htmldemo.net\pallas\pallas/wishlist.html">Wishlist</a>
-                                        </li>
-                                        <li><a href="pallas front end\htmldemo.net\pallas\pallas/404.html">Error 404</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li><a href="pallas front end\htmldemo.net\pallas\pallas/about.html"><i
-                                            class="zmdi zmdi-comments"></i> about Us</a></li>
-                                <li><a href="pallas front end\htmldemo.net\pallas\pallas/contact.html"><i
-                                            class="zmdi zmdi-account-box-mail"></i> Contact Us</a></li>
-                            </ul>
-                        </nav>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-6">
+                            <div class="total-cart">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span class="total-cart-number">2 Item</span>
+                                            <span><i class="sp-shopping-bag"></i></span>
+                                        </a>
+                                        <!-- Mini-cart-content Start -->
+                                        <div class="total-cart-brief">
+                                            <div class="cart-photo-details">
+                                                <div class="cart-photo">
+                                                    <a href="#"><img src="img/total-cart/1.jpg" alt="" /></a>
+                                                </div>
+                                                <div class="cart-photo-brief">
+                                                    <a href="#">Men's Shirt Shirt</a>
+                                                    <span>$25.00</span>
+                                                </div>
+                                                <div class="pro-delete">
+                                                    <a href="#"><i class="sp-circle-close"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-photo-details">
+                                                <div class="cart-photo">
+                                                    <a href="#"><img src="img/total-cart/1.jpg" alt="" /></a>
+                                                </div>
+                                                <div class="cart-photo-brief">
+                                                    <a href="#">Men's Shirt Shirt</a>
+                                                    <span>$25.00</span>
+                                                </div>
+                                                <div class="pro-delete">
+                                                    <a href="#"><i class="sp-circle-close"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-subtotal">
+                                                <p>Total = $50.00</p>
+                                            </div>
+                                            <div class="cart-inner-btm">
+                                                <a href="#">Checkout</a>
+                                            </div>
+                                        </div>
+                                        <!-- Mini-cart-content End -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!--header middel end-->
+            <!-- Main-Header End -->
+            <!-- Mobile-menu start -->
+            <div class="mobile-menu-area d-block d-md-none">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul>
+                                        <li><a href="index.html">home</a>
+                                            <ul class="submenu">
+                                                <li class="submenu-title"><a href="#">Home pages</a></li>
+                                                <li><a href="index.html">Homepage Version 1</a></li>
+                                                <li><a href="index-2.html">Homepage Version 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="shop.html">mens</a></li>
+                                        <li><a href="shop-list.html">womens</a></li>
+                                        <li><a href="shop.html">shop</a></li>
+                                        <li><a href="blog.html">blog</a>
+                                            <ul class="submenu">
+                                                <li class="submenu-title"><a href="#">Blog pages</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="single-blog.html">Single-blog</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Pages</a>
+                                            <ul class="submenu">
+                                                <li class="submenu-title"><a href="#">All pages</a></li>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="shop-list.html">Shop-List</a></li>
+                                                <li><a href="single-product.html">Single Product</a></li>
+                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li><a href="checkout.html">Checkout</a></li>
+                                                <li><a href="login.html">Login</a></li>
+                                                <li><a href="my-account.html">My Account</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="single-blog.html">Single-Blog</a></li>
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="contact.html">Contact Us</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile-menu end -->
+        </header>
+        <!-- HEADER-AREA END -->
 
-</header>
+        <!-- PAGE-CONTENT START -->
+        <section class="page-content">
+            <!-- 404-AREA START -->
+            <div class="area-404 margin-bottom-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="error">
+                                <div class="error-title">
+                                    <h1>404!</h1>
+                                </div>
+                                <div class="eror-brief">
+                                    <h2>This page is not available</h2>
+                                    <h3>We're sorry, but the Web address you've entered is no longer available.</h3>
+                                </div>
+                                <div class="eror-form">
+                                    <form action="#">
+                                        <span>Search our product catalog :</span>
+                                        <input type="text" class="form-control">
+                                        <button type="submit">Search</button>
+                                    </form>
+                                </div>
+                                <div class="back-home">
+                                    <a href="index.html"> home page</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 404-AREA END -->
+            <!-- BRAND-LOGO-AREA START -->
+            <div class="brand-logo-area margin-bottom-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="brand-brief">
+                                <h2 class="border-left-right">they are with us</h2>
+                                <p>It is a long established fact that a reader will be distracted by the readable
+                                    content of a page when looking at its layout. </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="brand-logo fix">
+                                <div class="single-logo">
+                                    <img src="img/brand/1.png" alt="" />
+                                </div>
+                                <div class="single-logo">
+                                    <img src="img/brand/2.png" alt="" />
+                                </div>
+                                <div class="single-logo">
+                                    <img src="img/brand/3.png" alt="" />
+                                </div>
+                                <div class="single-logo">
+                                    <img src="img/brand/4.png" alt="" />
+                                </div>
+                                <div class="single-logo">
+                                    <img src="img/brand/5.png" alt="" />
+                                </div>
+                                <div class="single-logo">
+                                    <img src="img/brand/6.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BRAND-LOGO-AREA END -->
+        </section>
+        <!-- PAGE-CONTENT END -->
+
+        <!-- FOOTER-AREA START -->

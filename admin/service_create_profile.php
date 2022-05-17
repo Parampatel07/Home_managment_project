@@ -43,7 +43,8 @@ require_once("inc/header.php");
                                                         <label for="" class="form-label">
                                                             Select logo
                                                         </label>
-                                                        <input type="file" accept="image/*" name="logo" class="form-control" required>
+                                                        <input type="file" accept="image/*" name="logo"
+                                                            class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-4 mb-5">
@@ -69,18 +70,17 @@ require_once("inc/header.php");
                                                 </div>
                                                 <div class="col-6 mb-3">
                                                     <label class="form-label">Enter address 1</label>
-                                                    <textarea class="form-control"  required placeholder="address 1"
+                                                    <textarea class="form-control" required placeholder="address 1"
                                                         rows="2"></textarea>
                                                 </div>
                                                 <div class="col-6 mb-3">
                                                     <label class="form-label">Enter address 2</label>
-                                                    <textarea class="form-control"  required placeholder="address 2"
+                                                    <textarea class="form-control" required placeholder="address 2"
                                                         rows="2"></textarea>
                                                 </div>
                                                 <div class="text-end mt-4">
                                                     <input type="submit" class="btn btn-primary" value="Create profile">
-                                                    <input type="reset" value="Clear all"
-                                                    class="btn btn-danger">
+                                                    <input type="reset" value="Clear all" class="btn btn-danger">
                                                 </div>
                                             </div>
                                         </form>
