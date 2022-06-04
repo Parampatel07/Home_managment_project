@@ -45,7 +45,7 @@
                                 </li>
                                 <li><a href="#providers">Providers</a></li>
                                 <li><a href="index.php#categories">Categories</a></li>
-                                <li><a href="index.php#providers">Booked services</a></li>
+                                <li><a href="index.php#test">Client Reviews</a></li>
                                 <li><a href="feedback.php">Feedback</a></li>
                                 <li><a href="#">My Account</a>
                                     <ul class="submenu">
@@ -54,6 +54,7 @@
                                         <li><a href="change_password.php">Change Password</a></li>
                                         <li><a href="register_create.php">Register</a></li>
                                         <li><a href="../admin/customer_create_profile.php">Create Profile</a></li>
+                                        <li><a href="booked_service.php">MY booked service</a></li>
                                     </ul>
                                 </li>
                             </ul>

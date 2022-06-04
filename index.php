@@ -363,7 +363,7 @@ require_once("inc/menu.php")
     </div>
     <!-- PRODUCT-AREA END -->
     <!-- TESTIMONIAL-AREA START -->
-    <div class="testimonial-area margin-bottom-80">
+    <div class="testimonial-area margin-bottom-80" id="test">
         <div class="testimonial">
             <h2><sup><i class="sp-quote"></i></sup> they love us</h2>
             <div class="testimonial-border">

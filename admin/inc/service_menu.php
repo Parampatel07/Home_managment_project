@@ -24,6 +24,11 @@
                             <i class="align-middle "></i> <h4 class="align-middle">Catalogue  management</h4>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a  href="service_book.php" class="sidebar-link collapsed">
+                            <i class="align-middle "></i> <h4 class="align-middle">Serivce book</h4>
+                        </a>
+                    </li>
                 </ul>
             </div>    
         </nav>
