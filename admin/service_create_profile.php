@@ -29,7 +29,7 @@ require_once("inc/header.php");
                                     <div class="my-5">
                                         <form action="" method="POST" name="form1">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-4">
                                                     <div class="mb-5">
                                                         <label for="" class="form-label">
                                                             Enter slogan here
@@ -38,13 +38,27 @@ require_once("inc/header.php");
                                                             placeholder="Enter company name / service name" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-4">
                                                     <div class="mb-5">
                                                         <label for="" class="form-label">
                                                             Select logo
                                                         </label>
                                                         <input type="file" accept="image/*" name="logo"
                                                             class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-4">
+                                                    <div class="mb-5">
+                                                        <label for="" class="form-label">
+                                                            Select Category
+                                                        </label>
+                                                        <select class="form-select" name="categoryid" id="">
+                                                            <option value="">Select Category</option>
+                                                            <option value="">1</option>
+                                                            <option value="">2</option>
+                                                            <option value="">3</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-4 mb-5">

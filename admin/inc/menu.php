@@ -29,6 +29,16 @@
                             <i class="align-middle "></i> <span class="align-middle">Feedback management </span>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a  href="customer_management.php" class="sidebar-link collapsed">
+                            <i class="align-middle "></i> <span class="align-middle">Customer management </span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a  href="service_provider_show.php" class="sidebar-link collapsed">
+                            <i class="align-middle "></i> <span class="align-middle">Service's Management</span>
+                        </a>
+                    </li>
                 </ul>
             </div>    
         </nav>
