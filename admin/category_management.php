@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once("inc/header.php");
 ?>
 </head>
@@ -18,6 +19,7 @@ require_once("inc/header.php");
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
+                   
                         <h1 class="header-title">
                             Category Management
                         </h1>
@@ -25,15 +27,19 @@ require_once("inc/header.php");
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
+                            <?php 
+require_once("../inc/message.php");
+                        ?>  
                                 <div class="card-header">
-                                    <h1 class="card-title mb-0">Insert category</h1>
+                                    <h1 class="mb-0">Insert category</h1>
                                 </div>
                                 <div class="card-body">
                                     <div class="my-5">
                                         <form action="" method="POST" name="form1">
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <div class="mb-3">
+                                                    <div class="mb-3"> 
+                                                        
                                                         <label for="" class="form-label">
                                                             Enter title here
                                                         </label>
