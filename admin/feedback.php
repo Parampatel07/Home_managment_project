@@ -35,6 +35,7 @@ require_once("inc/header.php");
                                                     <th>title</th>
                                                     <th>Description</th>
                                                     <th>Rating</th>
+                                                    <th>Operation</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -45,6 +46,10 @@ require_once("inc/header.php");
                                                     <td>Good service</td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
                                                     <td>5</td>
+                                                    <td>
+                                                        <h1 style="display: inline;"><a href="send_feedback.php"><i class="align-middle me-2 fab fa-fw fa-facebook-messenger" style="display: inline;"></i></a></h1>
+                                                        <h1 style="display: inline;"><a href=""><i class="align-middle me-2 fas fa-fw fa-trash" style="display: inline;"></i></a><h1>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>jeet patel</td>
@@ -53,6 +58,10 @@ require_once("inc/header.php");
                                                     <td>Good service</td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
                                                     <td>5</td>
+                                                    <td>
+                                                        <h1 style="display: inline;"><a href="send_feedback.php"><i class="align-middle me-2 fab fa-fw fa-facebook-messenger" style="display: inline;"></i></a></h1>
+                                                        <h1 style="display: inline;"><a href=""><i class="align-middle me-2 fas fa-fw fa-trash" style="display: inline;"></i></a><h1>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
