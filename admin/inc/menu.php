@@ -15,7 +15,7 @@
                         Main
                     </li>
                     <li class="sidebar-item">
-                        <a  href="forgot_password.php"  class="sidebar-link ">
+                        <a  href="dashboard_admin.php"  class="sidebar-link ">
                             <i class="align-middle "></i> <span class="align-middle">Dashboards</span>
                         </a>
                     </li>

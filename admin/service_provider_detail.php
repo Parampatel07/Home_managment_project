@@ -20,87 +20,68 @@ require_once("inc/header.php");
                         </h1>
                     </div>
                     <div class="row">
-                        <div class="col-12">
-                            <xdiv class="card">
-                                <div class="card-header">
-                                    <h1 class="mb-0">Service Provider - name of provider</h1>
-                                </div>
-                                <div class="card-body">
-                                    <div class="my-5 table table-responsive ">
-                                        <table class="table table-bordered table-striped">
-                                            <tr>
-                                                <td>
-                                                    Title
-                                                </td>
-                                                <td>
-                                                    Rakesh junjunvala co.
-                                                </td>
-                                                <td>
-                                                    Category
-                                                </td>
-                                                <td>
-                                                    Plumber
-                                                </td>
-                                                <td rowspan="2" colspan="2" style="height: 145px !important; height:125px !important;">
-                                                    <table>
-                                                        <tr>
-                                                            <td class="p-3"><label for="" class="from-label">Logo</label></td>
-                                                            <td>
-                                                                <div class="text-end">
-                                                                    <img src="https://picsum.photos/100/100" style="height: 145px; width:145px;" alt="">
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Slogan
-                                                </td>
-                                                <td colspan="3">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nesciunt vel rem id voluptatum pariatur placeat quisquam debitis numquam fuga eos veritatis, ratione magni culpa. Architecto neque laboriosam praesentium voluptas?
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="10%">
-                                                    name
-                                                </td>
-                                                <td width="25%">
-                                                    rakesh
-                                                </td>
-                                                <td width="10%">
-                                                    surname
-                                                </td>
-                                                <td width="25%">
-                                                    junjunvala
-                                                </td>
-                                                <td>
-                                                    Father name
-                                                </td>
-                                                <td>
-                                                    kamlesh junjunvala
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="">Email</td>
-                                                <td colspan="2">Suii1@gmail.com</td>
-                                                <td colspan="">Mobile number</td>
-                                                <td colspan="2">1234567891</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Address 1</td>
-                                                <td colspan="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rem ducimus, alias repudiandae veritatis sequi corporis sint optio dicta non, qui labore. Aspernatur voluptatum numquam dolorum impedit reiciendis sapiente asperiores?</td>
-                                                <td>Address 2</td>
-                                                <td colspan="2">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque tempore omnis eligendi, veritatis ullam earum soluta illum sequi, qui nihil minima minus! Perferendis aspernatur quaerat commodi magnam quidem, voluptatem doloremque.
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </xdiv>
-                        </div>
+                    <div class="col-xxl-3">
+							<div class="card">
+								<div class="card-header">
+									<h2 class="mb-0">Angelica Ramos</h2>
+								</div>
+								<div class="card-body">
+									<div class="row g-0">
+										<div class="col-sm-3 col-xl-12 col-xxl-4 text-center">
+											<img src="https://picsum.photos/100/100" width="84" height="84" class="rounded-circle mt-2" alt="Angelica Ramos">
+                                            <br>
+                                            <span>Logo of Angelica ramos</span>
+										</div>
+										<div class="col-sm-9 col-xl-12 col-xxl-8">
+											<strong>Slogan</strong>
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+												sociis
+												natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+										</div>
+									</div>
+
+									<table class="table table-sm my-2">
+										<tbody>
+											<tr>
+												<th>Title</th>
+												<td>rakesh junjun</td>
+											</tr>
+											<tr>
+												<th>category</th>
+												<td>plumber</td>
+											</tr>
+											<tr>
+												<th>name</th>
+												<td>Rakesh</td>
+											</tr>
+											<tr>
+												<th>Surname</th>
+												<td>junjun</td>
+											</tr>
+											<tr>
+												<th>father name </th>
+												<td>kamlesh junjun</td>
+											</tr>
+											<tr>
+												<th>email</th>
+												<td>Suii@gmail.com</td>
+											</tr>
+											<tr>
+												<th>mobile number1</th>
+												<td>9586254152</td>
+											</tr>
+											<tr>
+												<th>address 1</th>
+												<td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, voluptatem! Maiores, saepe.</td>
+											</tr>
+												<th>address 2</th>
+												<td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, voluptatem! Maiores, saepe.</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
                     </div>
                     <div class="row">
                         <div class="col-12">

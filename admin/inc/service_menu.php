@@ -15,7 +15,7 @@
                         Main
                     </li>
                     <li class="sidebar-item">
-                        <a  href="#"  class="sidebar-link ">
+                        <a  href="service_dashboard.php"  class="sidebar-link ">
                             <i class="align-middle "></i> <h4 class="align-middle">Dashboards</h4>
                         </a>
                     </li>
@@ -27,6 +27,11 @@
                     <li class="sidebar-item">
                         <a  href="service_book.php" class="sidebar-link collapsed">
                             <i class="align-middle "></i> <h4 class="align-middle">Serivce book</h4>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a  href="my_service_servicepro.php" class="sidebar-link collapsed">
+                            <i class="align-middle "></i> <h4 class="align-middle">My Service</h4>
                         </a>
                     </li>
                 </ul>
