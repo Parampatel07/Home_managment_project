@@ -1,5 +1,6 @@
 <?php
 require_once("inc/header.php");
+session_start();
 ?>
 </head>
 
@@ -23,6 +24,9 @@ require_once("inc/header.php");
                             Website Overview
                         </h1>
                         <p class="header-subtitle">Your services increased by 4.25% and booking increased by 5.12%.</p>
+                        <?php 
+require_once("../inc/message.php");
+                        ?>  
                     </div>
 
                     <div class="row">

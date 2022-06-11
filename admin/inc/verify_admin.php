@@ -12,13 +12,13 @@
         $statement->execute();
         $table=$statement->fetch();
         var_dump($table);
-        $user_hash_pass=password_hash($password,PASSWORD_DEFAULT);
+        $user_hash_pass=password_hash($table['password'],PASSWORD_DEFAULT);
         $result=password_verify($password,$table['password']);
         if($result==true)
         {
             // $_SESSION['message'] = "Login successfull";
             $_SESSION['message']="Login Succefully";
-            $map="../category_management.php";
+            $map="../dashboard_admin.php";
         }
         else
         {

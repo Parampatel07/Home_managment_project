@@ -1,5 +1,9 @@
 <?php
-require_once("inc/header.php")
+// session_start();
+// require_once("inc/verify_admin.php");
+require_once("inc/header.php");
+require_once("../inc/connection.php");
+require_once("../inc/function.php");
 ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
 <script>
@@ -32,25 +36,40 @@ require_once("inc/header.php")
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form>
+									<form name="form1">
 										<div class="mb-3">
 											<label>Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" required/>
 										</div>
 										<div class="text-center mt-3">
-											<input type="submit" class="btn btn-primary" value="Reset">
+											<input type="submit" name="btnsubmit" class="btn btn-primary" value="Reset">
 										</div>
 									</form>
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
-
+<?php
+if(isset($_GET['btnsubmit']))
+{
+	var_dump($_GET);
+	$newpass=rand(9,99).rand(9,99).rand(9,99);
+	$nhp=password_hash($newpass,PASSWORD_DEFAULT);
+	$subject="Your recovery mail";
+	$content="your password for home managemnet is been generated! There you Go  " .  $newpass;
+	// echo $content;
+	try
+	{
+		$sql="UPDATE admin set password=? where email=?";
+	}
+	// SendMail($_GET['email'],$subject,$content);
+	// header("location:forgot_password.php");
+}
+?>
 	<svg width="0" height="0" style="position:absolute">
 		<defs>
 			<symbol viewBox="0 0 512 512" id="ion-ios-pulse-strong">
