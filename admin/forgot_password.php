@@ -28,9 +28,13 @@ require_once("../inc/function.php");
 
 						<div class="text-center mt-4">
 							<h1 class="h2">Forgot password</h1>
+
 							<p class="lead">
 								Enter your email to get recovery.
 							</p>
+							<?php
+require_once("../inc/message.php");
+							?>
 						</div>
 
 						<div class="card">
@@ -65,8 +69,18 @@ if(isset($_GET['btnsubmit']))
 	try
 	{
 		$sql="UPDATE admin set password=? where email=?";
+		$statement=$db->prepare($sql);
+		$statement->bindparam(1,$newpass);
+		$statement->bindparam(2,$_GET['email']);
+		$statement->execute();
+		$user=$_GET['email'];
+		SendMail($user,$subject,$content);
+		$_SESSION['message']="New password Send to your mail account";
 	}
-	// SendMail($_GET['email'],$subject,$content);
+	catch(PDOException $error)
+	{
+		LogError($error,__FILE__);
+	}
 	// header("location:forgot_password.php");
 }
 ?>
