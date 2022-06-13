@@ -19,6 +19,8 @@
             // $_SESSION['message'] = "Login successfull";
             $_SESSION['message']="Login Succefully";
             $map="../dashboard_admin.php";
+            $_SESSION['admin_id']=$table['id'];
+            var_dump($_SESSION);
         }
         else
         {

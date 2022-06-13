@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("inc/header.php")
+require_once("inc2/header.php")
 ?>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -40,7 +40,7 @@ require_once("inc/header.php")
 									<div class="text-center">
 										<img src="theme/img/avatars/param1.jpeg" alt="Param patel" class="image-fluid rounded-circle" width="75" height="100" />
 									</div>
-									<form method="post" action="inc/verify_admin.php">
+									<form method="post" action="submit/verify_admin.php">
 										<div class="mb-3">
 										<?php 
 require_once("../inc/message.php");
@@ -76,7 +76,7 @@ require_once("../inc/message.php");
 		</defs>
 	</svg>
 	<?php
-	require_once("inc/script.php")
+	require_once("inc2/script.php")
 	?>
 </body>
 

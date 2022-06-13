@@ -1,5 +1,5 @@
 <?php
-require_once("inc/header.php");
+require_once("inc2/header.php");
 session_start();
 ?>
 </head>
@@ -10,11 +10,11 @@ session_start();
     </div>
     <div class="wrapper">
         <?php
-        require_once("inc/menu.php");
+        require_once("inc2/menu.php");
         ?>
         <div class="main">
             <?php
-            require_once("inc/logout.php")
+            require_once("inc2/logout.php")
             ?>
             <main class="content">
                 <div class="container-fluid">
@@ -323,7 +323,7 @@ require_once("../inc/message.php");
         </div>
     </div>
     <?php
-    require_once("inc/script.php");
+    require_once("inc2/script.php");
     ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

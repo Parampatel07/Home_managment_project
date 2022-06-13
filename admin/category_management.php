@@ -1,21 +1,20 @@
 <?php 
-session_start();
-require_once("inc/header.php");
+require_once("inc2/header.php");
 require_once("../inc/connection.php");
+require_once("inc2/check_admin_login.php");
 ?>
 </head>
-
 <body>
     <div class="splash active">
         <div class="splash-icon"></div>
     </div>
     <div class="wrapper">
         <?php
-		require_once("inc/menu.php");
+		require_once("inc2/menu.php");
 		?>
         <div class="main">
            <?php
-           require_once("inc/logout.php")
+           require_once("inc2/logout.php")
            ?>
             <main class="content">
                 <div class="container-fluid">
@@ -117,7 +116,7 @@ require_once("../inc/message.php");
         </div>
     </div>
     <?php
-	require_once("inc/script.php");
+	require_once("inc2/script.php");
 	?>
 </body>
 
