@@ -1,5 +1,5 @@
 <?php
-require_once("inc/header.php");
+require_once("inc2/header.php");
 ?>
 </head>
 
@@ -9,7 +9,7 @@ require_once("inc/header.php");
     </div>
     <div class="wrapper">
         <?php
-        require_once("inc/menu.php");
+        require_once("inc2/menu.php");
         ?>
         <div class="main">
             <main class="content">
@@ -54,7 +54,7 @@ require_once("inc/header.php");
                                                     <td>jeet patel</td>
                                                     <td>9584512545</td>
                                                     <td>12500</td>
-                                                    <td>                                                    <span class="badge bg-success  p-2">SERVED</span></td>
+                                                    <td> <span class="badge bg-success  p-2">SERVED</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>1</td>
@@ -65,7 +65,7 @@ require_once("inc/header.php");
                                                     <td>jeet patel</td>
                                                     <td>9584512545</td>
                                                     <td>12500</td>
-                                                    <td>                                                    <span class="badge bg-danger p-2">REJECTED</span></td>
+                                                    <td> <span class="badge bg-danger p-2">REJECTED</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>1</td>
@@ -76,7 +76,7 @@ require_once("inc/header.php");
                                                     <td>jeet patel</td>
                                                     <td>9584512545</td>
                                                     <td>12500</td>
-                                                    <td>                                                    <span class="badge bg-primary p-2">ACCEPTED</span></td>
+                                                    <td> <span class="badge bg-primary p-2">ACCEPTED</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>1</td>
@@ -88,7 +88,7 @@ require_once("inc/header.php");
                                                     <td>9584512545</td>
                                                     <td>12500</td>
                                                     <td>
-                                                    <span class="badge bg-warning p-2">REQUESTED</span>
+                                                        <span class="badge bg-warning p-2">REQUESTED</span>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -103,7 +103,7 @@ require_once("inc/header.php");
         </div>
     </div>
     <?php
-    require_once("inc/script.php");
+    require_once("inc2/script.php");
     ?>
 </body>
 

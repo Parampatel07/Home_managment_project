@@ -1,5 +1,5 @@
 <?php
-require_once("inc/header.php");
+require_once("inc2/header.php");
 ?>
 </head>
 
@@ -9,7 +9,7 @@ require_once("inc/header.php");
     </div>
     <div class="wrapper">
         <?php
-        require_once("inc/menu.php");
+        require_once("inc2/menu.php");
         ?>
         <div class="main">
             <main class="content">
@@ -70,7 +70,7 @@ require_once("inc/header.php");
         </div>
     </div>
     <?php
-    require_once("inc/script.php");
+    require_once("inc2/script.php");
     ?>
 </body>
 

@@ -35,11 +35,10 @@ require_once("../inc/message.php");
                                 </div>
                                 <div class="card-body">
                                     <div class="my-5">
-                                        <form action="" method="POST" name="form1">
+                                        <form action="submit/insert_category.php" method="POST" enctype="multipart/form-data" name="form1">
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div class="mb-3"> 
-                                                        
                                                         <label for="" class="form-label">
                                                             Enter title here
                                                         </label>
@@ -80,6 +79,20 @@ require_once("../inc/message.php");
                                 </div>
                                 <div class="card-body">
                                     <div class="my-5">
+<?php
+try
+{
+    $sql="SELECT * FROM category ORDER by id desc";
+    $statement=$db->prepare($sql);
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    $statement->execute();
+    $table = $statement->fetchall();
+}
+catch(PDOException $error)
+{
+    LogError($error,__FILE__);
+}
+?>
                                         <table id="example" class="display" style="width:100%">
                                             <thead>
                                                 <tr>
@@ -87,23 +100,27 @@ require_once("../inc/message.php");
                                                     <th>Title</th>
                                                     <th>Image</th>
                                                     <th>Description</th>
+                                                    <th>Operations</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <?php
+                                            $count=1;
+foreach($table as $row)
+{
+    // var_dump($row);
+                                            ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td width="15%">Param patel</td>
-                                                  
-                                                    <td><img src="https://picsum.photos/100/100" alt=""></td>
-                                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
+                                                    <td><?= $count++  ?></td>
+                                                    <td width="15%"><?= $row['title'] ?></td>
+                                                    <td><img src="images/category/<?= $row['photo'] ?>" width="100px" alt=""></td>
+                                                    <td><?= $row['description'] ?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td width="15%">Param patel</td>
-                                                    
-                                                    <td><img src="https://picsum.photos/100/100" alt=""></td>
-                                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
-                                                </tr>
+
+
+                                            <?php
+}
+                                            ?>
                                             </tbody>
                                         </table>
                                     </div>
