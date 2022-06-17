@@ -5,7 +5,7 @@ if (isset($_SESSION['message']) == TRUE) {
         <div class="alert-icon">
             <i class="far fa-fw fa-bell"></i>
         </div>
-        <div class="alert-message">
+        <div class="alert-message" style="text-transform: capitalize;">
            <?php echo $_SESSION['message']; unset($_SESSION['message']);?>
         </div>
 
@@ -20,7 +20,7 @@ else if(isset($_SESSION['error'])==true)
         <div class="alert-icon">
             <i class="far fa-fw fa-bell"></i>
         </div>
-        <div class="alert-message">
+        <div class="alert-message" style="text-transform: capitalize;">
            <?php echo $_SESSION['error']; unset($_SESSION['error']);?>
         </div>
 
