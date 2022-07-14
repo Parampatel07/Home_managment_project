@@ -1,20 +1,39 @@
 <?php
 // session_start();
 // require_once("inc/verify_admin.php");
-require_once("inc/header.php");
+require_once("inc2/header.php");
 require_once("../inc/connection.php");
-require_once("../inc/function.php");
+
+if(isset($_GET['btnsubmit']))
+{
+	var_dump($_GET);
+	$newpass=rand(9,99).rand(9,99).rand(9,99);
+	$nhp=password_hash($newpass,PASSWORD_DEFAULT);
+	$subject="Your recovery mail";
+	$content="your password for home managemnet is been generated! There you Go  " .  $newpass;
+	try
+	{
+		$sql="UPDATE admin set password=? where email=?";
+		$statement=$db->prepare($sql);
+		$statement->bindparam(1,$nhp);
+		$statement->bindparam(2,$_GET['email']);
+		$statement->execute();
+		require_once("../inc/function.php");
+		$user=$_GET['email'];
+		SendMail($user,$subject,$content);
+		$_SESSION['message']="New password Send to your mail account";
+	}
+	catch(PDOException $error)
+	{
+		LogError($error,__FILE__);
+	}
+	// header("location:forgot_password.php");
+}
+
 ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-120946860-7');
-</script></head>
+</head>
 <!-- SET YOUR THEME -->
-
 <body class="theme-blue">
 	<div class="splash active">
 		<div class="splash-icon"></div>
@@ -57,33 +76,6 @@ require_once("../inc/message.php");
 			</div>
 		</div>
 	</main>
-<?php
-if(isset($_GET['btnsubmit']))
-{
-	var_dump($_GET);
-	$newpass=rand(9,99).rand(9,99).rand(9,99);
-	$nhp=password_hash($newpass,PASSWORD_DEFAULT);
-	$subject="Your recovery mail";
-	$content="your password for home managemnet is been generated! There you Go  " .  $newpass;
-	// echo $content;
-	try
-	{
-		$sql="UPDATE admin set password=? where email=?";
-		$statement=$db->prepare($sql);
-		$statement->bindparam(1,$newpass);
-		$statement->bindparam(2,$_GET['email']);
-		$statement->execute();
-		$user=$_GET['email'];
-		SendMail($user,$subject,$content);
-		$_SESSION['message']="New password Send to your mail account";
-	}
-	catch(PDOException $error)
-	{
-		LogError($error,__FILE__);
-	}
-	// header("location:forgot_password.php");
-}
-?>
 	<svg width="0" height="0" style="position:absolute">
 		<defs>
 			<symbol viewBox="0 0 512 512" id="ion-ios-pulse-strong">
@@ -94,7 +86,7 @@ if(isset($_GET['btnsubmit']))
 		</defs>
 	</svg>
 	<?php
-    require_once("inc/script.php")
+    require_once("inc2/script.php")
     ?>
 </body>
 

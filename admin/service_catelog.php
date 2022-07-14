@@ -1,5 +1,5 @@
 <?php 
-require_once("inc/header.php");
+require_once("inc2/header.php");
 ?>
 </head>
 
@@ -9,11 +9,11 @@ require_once("inc/header.php");
     </div>
     <div class="wrapper">
         <?php
-		require_once("inc/service_menu.php");
+		require_once("inc2/service_menu.php");
 		?>
         <div class="main">
             <?php
-            require_once("inc/service_logout.php");
+            require_once("inc2/service_logout.php");
             ?>
             <main class="content">
                 <div class="container-fluid">
@@ -114,7 +114,7 @@ require_once("inc/header.php");
         </div>
     </div>
     <?php
-	require_once("inc/script.php");
+	require_once("inc2/script.php");
 	?>
 </body>
 

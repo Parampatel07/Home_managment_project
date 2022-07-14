@@ -1,8 +1,9 @@
 <?php
+require_once("../inc/connection.php");
+require_once("inc2/check_admin_login.php");
 require_once("inc2/header.php");
 ?>
 </head>
-
 <body>
     <div class="splash active">
         <div class="splash-icon"></div>
@@ -26,6 +27,21 @@ require_once("inc2/header.php");
                                     <h1 class="mb-0">Service Providers List</h1>
                                 </div>
                                 <div class="card-body">
+                                    <?php
+$sql="SELECT sp.*, c.title`ctitle` from service_provider sp, category c  where sp.categoryid=c.id";
+
+try{
+$statement=$db->prepare($sql);
+$statement->setfetchmode(PDO::FETCH_ASSOC);
+$statement->execute();
+$table=$statement->fetchall();
+// var_dump($table);
+}
+catch(PDOException $error)
+{
+    LogError($error,__FILE__);
+}
+                                    ?>
                                     <div class="my-5">
                                         <table id="example" class="display" style="width:100%">
                                             <thead>
@@ -39,25 +55,22 @@ require_once("inc2/header.php");
                                                     <th>Email</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td width="15%">Mechanic</td>
-                                                    <td><a href="service_provider_detail.php">JDM's</a></td>
-                                                    <td><img src="https://picsum.photos/100/100" alt=""></td>
-                                                    <td>Jojo <br> kimona</td>
-                                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga nihil dolores </td>
-                                                    <td>Param@gmail.com</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td width="15%">Mechanic</td>
-                                                    <td>JDM's</td>
-                                                    <td><img src="https://picsum.photos/100/100" alt=""></td>
-                                                    <td>Jojo <br> kimona</td>
-                                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga nihil dolores </td>
-                                                    <td>Param@gmail.com</td>
-                                                </tr>
+                                            <tbody><?php
+                                            $count=1;
+                                                foreach($table as $row)
+                                                {
+                                                    ?>
+                                                    <tr>
+                                                    <td><?= $count++ ?></td>
+                                                    <td width="15"><?= $row['ctitle']?></td>
+                                                    <td><a href="service_provider_detail.php?s_proid=<?= $row['id'] ?>"><?= $row['title']?></a></td>
+                                                    <td><img src="images/service_provider/<?= $row['logo'] ?>" height="100px" width="150px" alt=""></td>
+                                                    <td><?= $row['name'] ?> <br> <?= $row['surname'] ?></td>
+                                                    <td><?= $row['address1'] ?></td>
+                                                    <td><?= $row['email']?></td>
+                                                </tr><?php
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>

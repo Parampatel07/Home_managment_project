@@ -1,0 +1,12 @@
+INSERT INTO `service_book`(`customerid`, `catelogid`, `bookdate`, `servicedate`, `servicetime`, `contact_person`, `contatcno`, `amount`, `status`) VALUES ('1','1','11/7/2022','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]')
+
+INSERT INTO `service_book` (`id`, `customerid`, `catelogid`, `bookdate`, `servicedate`, `servicetime`, `contact_person`, `contatcno`, `amount`, `status`) VALUES (NULL, '1', '1', CURRENT_TIMESTAMP, '2022-07-19', '6:23', 'dhaivat bhatt', '12345678910', '5000', '1');
+
+INSERT INTO `service_book` (`id`, `customerid`, `catelogid`, `bookdate`, `servicedate`, `servicetime`, `contact_person`, `contatcno`, `amount`, `status`) VALUES (NULL, '1', '1', CURRENT_TIMESTAMP, '2022-07-19', '6:23', 'pranav joshi', '12345678910', '2500', '2');
+
+INSERT INTO `service_book` (`id`, `customerid`, `catelogid`, `bookdate`, `servicedate`, `servicetime`, `contact_person`, `contatcno`, `amount`, `status`) VALUES (NULL, '1', '1', CURRENT_TIMESTAMP, '2022-07-19', '10:26:29', 'ankara messi', '9456852356', '2500', '3');
+
+select * from service_book where catelogid=?
+
+
+SELECT s.*, c.name, c.surname,ca.id,ca.title catelog from service_book s,customer c,catelog ca WHERE catelogid=$t_value and c.id=s.customerid and s.catelogid=ca.id

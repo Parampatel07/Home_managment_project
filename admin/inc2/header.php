@@ -17,3 +17,9 @@
     <link rel="stylesheet" href="../admin/theme/css/modern.css">
     <link  rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <!-- upper link is for datatable -->
+    <style>
+        *
+        {
+            text-transform: capitalize;
+        }
+    </style>

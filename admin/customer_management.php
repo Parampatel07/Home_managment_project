@@ -1,8 +1,19 @@
 <?php
+require_once("../inc/connection.php");
+require_once("inc2/check_admin_login.php");
 require_once("inc2/header.php");
+$sql = "SELECT * FROM customer";
+try {
+    $statement = $db->prepare($sql);
+    $statement->setfetchmode(PDO::FETCH_ASSOC);
+    $statement->execute();
+    $table = $statement->fetchall();
+    // var_dump($table);
+} catch (PDOException $error) {
+    LogError($error, __FILE__);
+}
 ?>
 </head>
-
 <body>
     <div class="splash active">
         <div class="splash-icon"></div>
@@ -23,7 +34,7 @@ require_once("inc2/header.php");
                         <div class="col-12">
                             <xdiv class="card">
                                 <div class="card-header">
-                                    <h1 class="card-title mb-0">Customer List</h1>
+                                    <h1 class="">Customer List</h1>
                                 </div>
                                 <div class="card-body">
                                     <div class="my-5">
@@ -40,24 +51,31 @@ require_once("inc2/header.php");
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td width="15%">Param patel</td>
-                                                    <td>Male</td>
-                                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
-                                                    <td>Gujarat</td>
-                                                    <td>9016293308</td>
-                                                    <td>Param@gmail.com</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td width="15%">Param patel</td>
-                                                    <td>Male</td>
-                                                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
-                                                    <td>Gujarat</td>
-                                                    <td>9016293308</td>
-                                                    <td>Param@gmail.com</td>
-                                                </tr>
+                                                <?php
+                                                $count=1;
+                                                foreach ($table as $row) {
+                                                ?>
+                                                    <tr>
+                                                        <td><?= $count++ ?></td>
+                                                        <td width="15%"><a href="customer_detail.php?customerid=<?php echo $row['id'] ?>"><?= $row['name'] ?></a></td>
+
+                                                        <?php
+                                                        if ($row['gender'] == '1') {
+                                                            $gender = 'male';
+                                                        }
+                                                        else if ($row['gender'] == '2') {
+                                                            $gender = 'female';
+                                                        }
+                                                        ?>
+                                                        <td><?= $gender ?></td>
+                                                        <td><?= $row['address1']?></td>
+                                                        <td><?= $row['city'] ?></td>
+                                                        <td><?= $row['mobile'] ?></td>
+                                                        <td><?= $row['email'] ?></td>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>

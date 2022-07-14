@@ -20,6 +20,7 @@ try
         $newimage=rand(9,99).rand(9,99).rand(9,99).$_FILES['photo']['name'];
         $query->bindparam(3,$newimage);
         unlink("../images/category/$oldimage");
+        // unlink("images/category/$oldimage");
         move_uploaded_file($_FILES['photo']['tmp_name'],"../images/category/$newimage");
     }
     $query->bindparam(4,$categoryid);
