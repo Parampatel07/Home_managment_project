@@ -1,4 +1,5 @@
 <?php
+require_once("inc2/check_service_login.php");
 require_once("inc2/header.php");
 ?>
 <style>
@@ -7,7 +8,6 @@ require_once("inc2/header.php");
     }
 </style>
 </head>
-
 <body>
     <div class="splash active">
         <div class="splash-icon"></div>
@@ -26,6 +26,9 @@ require_once("inc2/header.php");
                         <h1 class="header-title">
                             Service provider name - analysis
                         </h1>
+                        <?php
+require_once("../inc/message.php");
+                        ?>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-lg-3 col-xl">
@@ -301,5 +304,4 @@ require_once("inc2/header.php");
         });
     </script>
 </body>
-
 </html>

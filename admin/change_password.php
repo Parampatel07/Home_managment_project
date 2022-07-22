@@ -1,5 +1,5 @@
 <?php
-require_once("inc/header.php")
+require_once("inc2/header.php")
 ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
@@ -66,7 +66,7 @@ require_once("inc/header.php")
 		</defs>
 	</svg>
 <?php
-require_once("inc/script.php")
+require_once("inc2/script.php")
 ?>
 </body>
 </html>

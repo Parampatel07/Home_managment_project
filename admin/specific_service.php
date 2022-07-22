@@ -42,13 +42,14 @@ catch(PDOException $error)
                                     <h1 style="display: inline;" class="mb-0">Service provided by - name of provider</h1>
                                 </div>
                                 <div class="card-body">
-                                    <div class="my-5 table-responsive">
+                                    <div class="my-5 ">
                                         <table id="example" class="display table " style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>Sr no.</th>
                                                     <th>Customer</th>
                                                     <th>service provider</th>
+                                                    <th>Catelog</th>
                                                     <th>Book date</th>
                                                     <th>Service date</th>
                                                     <th>Contact person</th>
@@ -87,6 +88,7 @@ catch(PDOException $error)
                                                     <td><?= $count++; ?></td>
                                                     <td><?= $row['name']." ".$row['surname'];?></td>
                                                     <td><?= $row['serviceprovider'];?></td>
+                                                    <td><?= $row['catelog'];?></td>
                                                     <td><?= $row['bookdate']?></td>
                                                     <td><?= $row['servicedate']?></td>
                                                     <td><?= $row['contact_person']?></td>
