@@ -23,6 +23,9 @@ require_once("inc2/header.php")
 							<h1 class="h2">Welcome back, Admin!</h1>
 							<p class="lead">
 								Sign in to your account to continue
+								<p>
+									MAil work is pending
+								</p>
 							</p>
 						</div>
 						<div class="card">

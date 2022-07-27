@@ -10,17 +10,19 @@ try
     $stat->bindparam(1,$email);
     $stat->setfetchmode(PDO::FETCH_ASSOC);
     $stat->execute();
-    $row=$stat->fetchall();
+    $row=$stat->fetch();
     var_dump($row);
     // $hashed_us_password=password_hash($password,PASSWORD_DEFAULT);
     if(sizeof($row)>0)
     {
 
-        $temp=password_verify($password,$row[0]['password']);
+        $temp=password_verify($password,$row['password']);
         if($temp==true)
         {
             $_SESSION['message']="Login Succesfull";
             $_SESSION['service_id']=$row['id'];
+            echo $row['id'];
+            // echo $_SESSION['service_id'];
             $page="../service_dashboard.php";
         }
         else

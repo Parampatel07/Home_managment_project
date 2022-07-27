@@ -26,7 +26,7 @@
                     </li>
                     <li class="sidebar-item">
                         <a  href="service_book.php" class="sidebar-link collapsed">
-                            <i class="align-middle "></i> <h4 class="align-middle">Serivce book</h4>
+                            <i class="align-middle "></i> <h4 class="align-middle">Serivce Pending</h4>
                         </a>
                     </li>
                     <li class="sidebar-item">

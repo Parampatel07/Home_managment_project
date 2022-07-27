@@ -27,12 +27,16 @@ require_once("../inc/connection.php");
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h1 class="card-title mb-0">Add Catalogue</h1>
+                                    <h1 class="card-title mb-5">Add Catalogue</h1>
+                                    <?php 
+require_once("../inc/message.php");
+?>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="margin-top: -40px;">
                                     <div class="my-5">&nbsp;
-                                        <form action="" method="POST" name="form1" id="form1" enctype="multipart/form-data">
+                                        <form method="post" name="form1" id="form1" enctype="multipart/form-data">
                                             <div class="row">
+
                                                 <div class="col-6 mb-5">
                                                     <label for="" class="form-label">
                                                         Enter title
@@ -52,14 +56,14 @@ require_once("../inc/connection.php");
                                                     <input type="number" class="form-control" name="amount" required placeholder="Enter amount for catalogue">
                                                 </div>
                                                 <div class="col-6 mb-5">
-                                                    <label for="" class="form-label">
+                                                    <label for="image" class="form-label">
                                                         Select photo
                                                     </label>
                                                     <input type="file" class="form-control" accept="image/*" name="image" required>
                                                 </div>
-                                                <div class="text-end ">
-                                                    <input class="btn btn-primary" type="button" id="save" value="Save">
-                                                    <input class="btn btn-danger" type="submit" value="Reset" id="reset">
+                                                <div class="text-end">
+                                                    <input class="btn btn-primary" type="submit" id="save" value="Save">
+                                                    <input class="btn btn-danger" type="reset" value="Reset" id="reset">
                                                 </div>
                                             </div>
                                         </form>
@@ -93,8 +97,6 @@ require_once("../inc/connection.php");
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
                                                     <td>45000</td>
-
-
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
@@ -119,18 +121,24 @@ require_once("../inc/connection.php");
     ?>
     <script>
         $(document).ready(function() {
-            console.log("Jquery working....");
-            $("#save").click(function() {
-                var temp = $("#form1").valid();
-                console.log(temp);
-                if (temp == true) {
-                    var pageaddress = "submit/insert_catelog.php";
-                    $.post(pageaddress, $("#form1").serialize(), function(data, status) {
-                        console.log(data, status);
-                        
-                    });
-                }
-            });
+            if (typeof hie !== 'undefined')
+            {
+                console.log("formate");
+            }
+            $("#form1").on('submit', (function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "submit/insert_catelog.php",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        console.log(data);
+                    }
+                });
+
+            }));
         });
     </script>
 </body>

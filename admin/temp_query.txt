@@ -10,3 +10,4 @@ select * from service_book where catelogid=?
 
 
 SELECT s.*, c.name, c.surname,ca.id,ca.title catelog from service_book s,customer c,catelog ca WHERE catelogid=$t_value and c.id=s.customerid and s.catelogid=ca.id
+

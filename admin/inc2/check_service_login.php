@@ -1,5 +1,6 @@
 <?php
 session_start();
+// var_dump($_SESSION);
 if(isset($_SESSION['service_id'])==false)
 {
     $_SESSION['error']="Login is Required";
@@ -7,8 +8,5 @@ if(isset($_SESSION['service_id'])==false)
     header("location:service_login2.php");
     exit();
 }
-else
-{
-    header("location:service_dashboard.php");
-}
+
 ?>
