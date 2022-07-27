@@ -21,7 +21,7 @@ require_once("../inc/connection.php");
                 <div class="container-fluid">
                     <div class="header">
                         <h1 class="header-title">
-                            Service orders
+                            Service Pending
                         </h1>
                         <!-- <nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -49,11 +49,12 @@ require_once("../inc/connection.php");
                                                     <th>Service time</th>
                                                     <th>Contact person</th>
                                                     <th>Contact number</th>
-                                                    <th>Operations</th>
+                                                    <th>Amount</th>
+                                                    <th>Book_date</th>
                                                 </tr>
                                             </thead>
                                             <?php
-                                            $sql = "SELECT  s.id sbid,s.*, c.name, c.surname,ca.id,ca.title catelog ,ca.photo from service_book s,customer c,catelog ca WHERE s.service_proid={$_SESSION['service_id']} and c.id=s.customerid and s.catelogid=ca.id and status=1; 
+                                            $sql = "SELECT  s.id sbid,s.*, c.name, c.surname,ca.id,ca.title catelog ,ca.photo from service_book s,customer c,catelog ca WHERE s.service_proid={$_SESSION['service_id']} and c.id=s.customerid and s.catelogid=ca.id and status=2; 
                                             ";
                                             $stat = $db->prepare($sql);
                                             $stat->setFetchMode(PDO::FETCH_ASSOC);
@@ -78,8 +79,11 @@ require_once("../inc/connection.php");
                                                         <td><?php echo $row['contact_person'] ?></td>
                                                         <td><?php echo $row['contatcno'] ?></td>
                                                         <td>
-                                                            <button href="" data-id="<?php echo $row['sbid'] ?>" class="btn btn-success mb-2 approve">Approve</button>
-                                                            <button href="" data-id="<?php echo $row['sbid'] ?>"  class="btn btn-danger reject">Reject</button>
+                                                            <?php echo $row['amount'] ?>
+                                                        </td>
+                                                        <td>
+                                                            
+                                                            <?php echo $row['bookdate'] ?>
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -99,60 +103,6 @@ require_once("../inc/connection.php");
     <?php
     require_once("inc2/script.php");
     ?>
-    <script>
-        $(document).ready(function() {
-            console.log("Jquery working");
-            $(".approve").on('click', function() {
-                console.log("hieee");
-                var row=$(this).parent().parent();
-                if (confirm("Do you really want to approve this request") == true) {
-                    text = "You pressed OK!";
-                    // console.log(text);
-                    var apporve='yes';
-                    var apid = $(this).attr("data-id");
-                    // console.log(apid);
-                    var page = "submit/approve_service.php?apid="+apid+"&apporve="+apporve;
-                    $.get(page,function(data,status) {
-                        // now submit this page on approve 
-                        // alert(data,status)
-                        if(data==10)
-                        {
-                            alert("Requested accepted succesfully");
-                            $(row).addClass("bg-success").fadeOut('slow');
-                        }
-                        else
-                        {
-                            alert("Oops something went wrong please try again");
-                        }
-                    });
-                } else {
-                    text = "You canceled!";
-                }
-                // console.log(text);
-                
-            });
-            $(".reject").on('click',function(){         
-                var row=$(this).parent().parent();
-                if(confirm("Do you really want to reject this request")==true)
-                {
-                    var sbid=$(this).attr('data-id');
-                    // alert(sbid);
-                    var page="submit/approve_service.php?apid="+sbid;
-                    $.get(page,function(data,status){
-                        if(data==20)
-                        {
-                            alert("Requested Rejected succesfully");
-                            $(row).addClass("bg-danger").fadeOut('slow');
-                        }
-                        else
-                        {
-                            alert("Oops something went wrong please try again");
-                        }
-                    });
-                }
-            });
-        })
-    </script>
 </body>
 
 </html>

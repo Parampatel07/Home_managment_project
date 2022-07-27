@@ -1,13 +1,30 @@
 <?php
 require_once("inc2/header.php");
+require_once("../inc/connection.php");
+require_once("inc2/check_service_login.php");
 ?>
+ <?php
+try
+{
+    $sql="SELECT sb.*,c.name,c.surname,ct.title from service_book sb,customer c,catelog ct where sb.id=? and c.id=sb.customerid and ct.id=sb.catelogid";
+    $stat=$db->prepare($sql);
+    $stat->setFetchMode(PDO::FETCH_ASSOC);
+    $stat->bindparam(1,$_SESSION['service_id']);
+    $stat->execute();
+    $table=$stat->fetchAll();
+    var_dump($table);
+}
+catch(PDOException $error)
+{
+    LogError($error,__FILE__);
+}
+                                ?>
 <style>
     * {
         text-transform: capitalize;
     }
 </style>
 </head>
-
 <body>
     <div class="splash active">
         <div class="splash-icon"></div>
@@ -28,249 +45,63 @@ require_once("inc2/header.php");
                         </h1>
                     </div>
                     <div class="row">
-                        <!-- <div class="col-12 col-lg-12 d-flex">
-                            <div class="card flex-fill">
-                                <div class="card-header">
-                                    <h5 class="card-title mb-0">My Services</h5>
-                                </div>
-                                <table id="datatables-dashboard-projects" class="table table-striped my-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Customer Name</th>
-                                            <th class="d-none d-xl-table-cell">Cagtelog</th>
-                                            <th class="d-none d-xl-table-cell">Amount</th>
-                                            <th class="d-none d-xl-table-cell">booked date</th>
-                                            <th class="d-none d-xl-table-cell">Service date</th>
-                                            <th class="d-none d-xl-table-cell">City</th>
-                                            <th class="d-none d-xl-table-cell">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-success">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-primary">HTML</span></td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-danger">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-warning">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-success">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-warning">HTML</span></td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-danger">HTML</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div> -->
-                        <!-- <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title">DataTables with Column Search by Text Inputs</h5>
-                                    <h6 class="card-subtitle text-muted">The searching functionality provided by DataTables is useful for quickly search through
-                                        the information in the table. See official documentation <a href="https://datatables.net/examples/api/multi_filter.html" target="_blank" rel="noopener noreferrer nofollow">here</a>.</h6>
-                                </div>
-                                <div class="card-body">
-                                    <table id="datatables-column-search-text-inputs" class="table table-striped" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Customer Name</th>
-                                                <th class="d-none d-xl-table-cell">Cagtelog</th>
-                                                <th class="d-none d-xl-table-cell">Amount</th>
-                                                <th class="d-none d-xl-table-cell">booked date</th>
-                                                <th class="d-none d-xl-table-cell">Service date</th>
-                                                <th class="d-none d-xl-table-cell">City</th>
-                                                <th class="d-none d-xl-table-cell">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-success">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-primary">HTML</span></td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-danger">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-warning">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-success">HTML</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-warning">HTML</span></td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <td>AppStack</td>
-                                            <td class="d-none d-xl-table-cell">Single license</td>
-                                            <td class="d-none d-xl-table-cell">50</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">720</td>
-                                            <td class="d-none d-xl-table-cell">Bhavnagar</td>
-                                            <td><span class="badge bg-danger">HTML</span></td>
-                                        </tr>
-                                    </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> -->
-
-                    </div>
-                    <div class="row">
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title">DataTables with Column Search by Text Inputs</h5>
-									<h6 class="card-subtitle text-muted">The searching functionality provided by DataTables is useful for quickly search through
-										the information in the table. See official documentation <a href="https://datatables.net/examples/api/multi_filter.html"
-											target="_blank" rel="noopener noreferrer nofollow">here</a>.</h6>
+									<h5 class="card-title">Total service's </h5>
+									<!-- <h6 class="card-subtitle text-muted"></h6> -->
 								</div>
+                               
 								<div class="card-body">
 									<table id="datatables-column-search-text-inputs" class="table table-striped" style="width:100%">
 										<thead>
 											<tr>
-												<th>Cagtelog</th>
-												<th>Amount</th>
-												<th>book date</th>
+												<th>Customer</th>
+												<th>Catelog</th>
+												<th>Book date</th>
 												<th>service date</th>
-												<th>City</th>
-												<th>Status</th>
+												<th>contact person</th>
+												<th>contact no</th>
+												<th>amount</th>
+												<th>status</th>
 											</tr>
 										</thead>
 										<tbody>
+                                            <?php
+                                            
+foreach($table as $row)
+{
+    if($row['status']==1)
+                                            {
+                                                $word="Requested";
+                                            }
+                                            else if($row['status']==2)
+                                            {
+                                                $word="Accepted";
+                                            }
+                                            else if($row['status']==3)
+                                            {
+                                                $word="Served";
+                                            }
+                                            else if($row['status']==4)
+                                            {
+                                                $word="Rejected";
+                                            }
+                                                ?>
 											<tr>
-												<td>Single license</td>
-												<td>50</td>
-												<td>720</td>
-												<td>720</td>
-												<td>Bhavnagar</td>
-												<td><span class="badge bg-danger">HTML</span></td>
+												<td><?php echo $row['name']."  " ."  ".$row['surname'];?></td>
+												<td><?php echo $row['title']?></td>
+												<td><?php echo $row['bookdate'] ?></td>
+												<td><?php echo $row['servicedate']?></td>
+												<td><?php echo $row['contact_person']?></td>
+												<td><?php echo $row['contatcno']?></td>
+												<td><?php echo $row['amount']?></td>
+												<td><span class="badge bg-danger"><?php echo $word  ?></span></td>
 											</tr>
-												<tr>
-												<td>Single license</td>
-												<td>50</td>
-												<td>720</td>
-												<td>720</td>
-												<td>Bhavnagar</td>
-												<td><span class="badge bg-success">HTML</span></td>
-											</tr>
-												<tr>
-												<td>Single license</td>
-												<td>50</td>
-												<td>720</td>
-												<td>720</td>
-												<td>Bhavnagar</td>
-												<td><span class="badge bg-warning">HTML</span></td>
-											</tr>
-												<tr>
-												<td>Single license</td>
-												<td>50</td>
-												<td>720</td>
-												<td>720</td>
-												<td>Bhavnagar</td>
-												<td><span class="badge bg-primary">HTML</span></td>
-											</tr>
-											
-										</tbody>
+<?php
+}
+?>
+                                    </tbody>
 										<tfoot>
 											<tr>
 												<th>Name</th>
