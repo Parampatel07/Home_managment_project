@@ -12,7 +12,7 @@ try
     $stat->bindparam(1,$_SESSION['service_id']);
     $stat->execute();
     $table=$stat->fetchAll();
-    var_dump($table);
+    // var_dump($table);
 }
 catch(PDOException $error)
 {

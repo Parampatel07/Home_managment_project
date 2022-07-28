@@ -28,9 +28,9 @@ require_once("../inc/connection.php");
                             <div class="card">
                                 <div class="card-header">
                                     <h1 class="card-title mb-5">Add Catalogue</h1>
-                                    <?php 
-require_once("../inc/message.php");
-?>
+                                    <?php
+                                    require_once("../inc/message.php");
+                                    ?>
                                 </div>
                                 <div class="card-body" style="margin-top: -40px;">
                                     <div class="my-5">&nbsp;
@@ -88,22 +88,24 @@ require_once("../inc/message.php");
                                                     <th>Image</th>
                                                     <th>Description</th>
                                                     <th>Amount</th>
+                                                    <th>operation</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
+                                            <tbody id="output">
+                                                <!-- <tr>
                                                     <td>1</td>
                                                     <td width="15%">Param patel</td>
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
                                                     <td>45000</td>
-                                                </tr>
-                                                <tr>
+                                                </tr> -->
+                                                <tr style="display:none;">
                                                     <td>2</td>
                                                     <td width="15%">Param patel</td>
                                                     <td><img src="https://picsum.photos/100/100" alt=""></td>
                                                     <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sequi iste! Exercitationem eligendi recusandae alias odit accusantium distinctio inventore totam?</td>
                                                     <td>50000</td>
+                                                    <td>hiee</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -120,9 +122,37 @@ require_once("../inc/message.php");
     require_once("inc2/script.php");
     ?>
     <script>
+        function getData() {
+            var pageAddress = "submit/show_catelog.php";
+            $.ajax({
+                url: "submit/show_catelog.php"
+            }).done(function(data) {
+                // alert(data);
+                var data_array = $.parseJSON(data); //convert string into json array 
+                var size = data_array.length;
+                var j = 1;
+                // alert(data_array);
+                var i = 0
+                // i ni value 19 batade che su kaam e khbar nai ani upar nu kaam kare che 
+                for (i = 0; i <= size - 1; i++, j++) {
+                    var tr = `<tr>
+                                    <td width="5%">${j}</td>
+                                    <td width="15%">${data_array[i].title}</td>
+                                    <td><img src="images/catelog/${data_array[i].photo}" class='img-fluid' alt=""></td>
+                                    <td width="60%">${data_array[i].detail}</td>
+                                    <td>${parseInt(data_array[i].amount)}</td>
+                                    <td><h3><i class="align-middle me-2 fas fa-fw fa-edit"></i>
+                                    <i class="align-middle me-2 fas fa-fw fa-trash-alt"></i></h3>
+                                    </td>
+                            </tr>`;
+                    $("#output").append(tr);
+                }
+            });
+        }
         $(document).ready(function() {
-            if (typeof hie !== 'undefined')
-            {
+            console.log("Jquery working");
+            getData();
+            if (typeof hie !== 'undefined') {
                 console.log("formate");
             }
             $("#form1").on('submit', (function(e) {
@@ -139,6 +169,12 @@ require_once("../inc/message.php");
                 });
 
             }));
+            $("body").on('click',".fa-edit",function(){
+                alert("edit");
+            });
+            $("body").on('click',".fa-trash-alt",function(){
+                alert("delete")
+            });
         });
     </script>
 </body>

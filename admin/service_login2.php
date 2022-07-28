@@ -24,7 +24,7 @@ require_once("inc2/header.php")
 							<p class="lead">
 								Sign in to your account to continue
 								<p>
-									insert catelog is pending....
+									catelog edit and delete is pending 
 								</p>
 							</p>
 						</div>
