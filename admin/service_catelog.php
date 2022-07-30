@@ -135,10 +135,10 @@ require_once("../inc/connection.php");
                 var i = 0
                 // i ni value 19 batade che su kaam e khbar nai ani upar nu kaam kare che 
                 for (i = 0; i <= size - 1; i++, j++) {
-                    var tr = `<tr>
-                                    <td width="5%">${j}</td>
+                    var tr = `<tr data-id="${window.btoa(data_array[i].id)}" data-img='${data_array[i].photo}'>
+                                    <td width="5%" >${j}</td>
                                     <td width="15%">${data_array[i].title}</td>
-                                    <td><img src="images/catelog/${data_array[i].photo}" class='img-fluid' alt=""></td>
+                                    <td><img data-img='${data_array[i].photo}'  src="images/catelog/${data_array[i].photo}" class='img-fluid curimage' alt=""></td>
                                     <td width="60%">${data_array[i].detail}</td>
                                     <td>${parseInt(data_array[i].amount)}</td>
                                     <td><h3><i class="align-middle me-2 fas fa-fw fa-edit"></i>
@@ -170,10 +170,26 @@ require_once("../inc/connection.php");
 
             }));
             $("body").on('click',".fa-edit",function(){
-                alert("edit");
+                // alert("edit");
+                var id=$(this).parent().parent().parent().attr('data-id');
+                // id=window.atob(id);   this method is used to decode the encoded string 
+                // alert(id);
+                var page = "edit_catelog.php?catelogid="+id;
+                $(location).attr("href",page);  
             });
             $("body").on('click',".fa-trash-alt",function(){
-                alert("delete")
+                var id=$(this).parent().parent().parent().attr('data-id');
+                // alert(id);
+                alert("delete");
+                var photo=$(this).parent().parent().parent().attr('data-img');
+                // alert(photo);
+                var page="submit/delete_catelog.php?catelogid="+id+"&photo="+photo;
+                $.get(page,function(data,status){
+                    if(data=='Deleted succesfully')
+                    {
+                        alert(data);
+                    }
+                });
             });
         });
     </script>
