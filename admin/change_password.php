@@ -31,18 +31,18 @@ require_once("inc2/header.php")
 									<div class="text-center">
 										<img src="theme/img/avatars/param1.jpeg" alt="Param patel" class="image-fluid rounded-circle" width="75" height="100" />
 									</div>
-									<form>
+									<form action="submit/update_password.php" method="POST" name="form1">
 										<div class="mb-3">
-											<label class="form-label">Email address</label>
-											<input type="email" class="form-control" placeholder="Email" required>
+											<label class="form-label">Enter old Password</label>
+											<input type="password" class="form-control" name="oldpass" placeholder="old password" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Enter new Password</label>
-											<input type="password" class="form-control" placeholder="Password" required>
+											<input type="password" class="form-control" name="newpass" placeholder="Password" required>
 										</div>
                                         <div class="mb-3">
 											<label class="form-label">Confirm Password</label>
-											<input type="password" class="form-control" placeholder="Password" required>
+											<input type="password" class="form-control" name="conpass" placeholder="Password" required>
 										</div>
                                         <div class="text-center">
                                         <input type="submit" class="btn btn-primary" value="Save">

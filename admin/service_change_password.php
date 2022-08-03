@@ -1,5 +1,7 @@
 <?php
-require_once("inc/header.php")
+require_once("inc2/header.php");
+require_once("../inc/connection.php");
+require_once("inc2/check_service_login.php");
 ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
@@ -28,18 +30,22 @@ require_once("inc/header.php")
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form>
+									<form action="submit/service_update_password.php" method="POST" name="form1">
+<?php
+require_once("../inc/message.php");
+
+?>
 										<div class="mb-3">
-											<label class="form-label">Email address</label>
-											<input type="email" class="form-control" placeholder="Email" required>
+											<label class="form-label">OLD password</label>
+											<input type="password" name="oldpass"  class="form-control" placeholder="password" required>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Enter new Password</label>
-											<input type="password" class="form-control" placeholder="Password" required>
+											<input type="password" name="newpass" class="form-control" placeholder="Password" required>
 										</div>
                                         <div class="mb-3">
 											<label class="form-label">Confirm Password</label>
-											<input type="password" class="form-control" placeholder="Password" required>
+											<input type="password" name="conpass" class="form-control" placeholder="Password" required>
 										</div>
                                         <div class="text-center">
                                         <input type="submit" class="btn btn-primary" value="Save">
@@ -63,7 +69,7 @@ require_once("inc/header.php")
 		</defs>
 	</svg>
 <?php
-require_once("inc/script.php")
+require_once("inc2/script.php")
 ?>
 </body>
 </html>

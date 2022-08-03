@@ -11,3 +11,21 @@ select * from service_book where catelogid=?
 
 SELECT s.*, c.name, c.surname,ca.id,ca.title catelog from service_book s,customer c,catelog ca WHERE catelogid=$t_value and c.id=s.customerid and s.catelogid=ca.id
 
+
+query for dashboard cards will be as below
+------------------------------------------------------
+SELECT 'service_book_total' AS service_book, COUNT(*) AS row_count FROM house_management .service_book UNION                         
+SELECT 'catelog_total' AS catelog, COUNT(*) AS row_count FROM house_management.catelog 
+
+
+
+this will help more
+-------------------------------------------------
+SELECT COUNT(*) AS row_count FROM house_management .service_book UNION SELECT COUNT(*) AS row_count FROM house_management.catelog; 
+
+
+till catelog
+------------------------------
+SELECT  COUNT(*) AS row_count FROM house_management .service_provider UNION                         
+SELECT  COUNT(*) AS row_count FROM house_management.catelog UNION
+SELECT COUNT(*) AS row_count FROM house_management.service_book;

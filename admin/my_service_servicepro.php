@@ -6,7 +6,7 @@ require_once("inc2/check_service_login.php");
  <?php
 try
 {
-    $sql="SELECT sb.*,c.name,c.surname,ct.title from service_book sb,customer c,catelog ct where sb.id=? and c.id=sb.customerid and ct.id=sb.catelogid";
+    $sql="SELECT s.id sbid,s.*, c.name, c.surname,ca.id,ca.title catelog ,ca.photo from service_book s,customer c,catelog ca WHERE s.service_proid=? and c.id=s.customerid and s.catelogid=ca.id";
     $stat=$db->prepare($sql);
     $stat->setFetchMode(PDO::FETCH_ASSOC);
     $stat->bindparam(1,$_SESSION['service_id']);
@@ -74,29 +74,33 @@ foreach($table as $row)
     if($row['status']==1)
                                             {
                                                 $word="Requested";
+                                                $class="bg-primary";
                                             }
                                             else if($row['status']==2)
                                             {
                                                 $word="Accepted";
+                                                $class="bg-warning ";
                                             }
                                             else if($row['status']==3)
                                             {
                                                 $word="Served";
+                                                $class="bg-success ";
                                             }
                                             else if($row['status']==4)
                                             {
                                                 $word="Rejected";
+                                                $class="bg-danger ";
                                             }
                                                 ?>
 											<tr>
 												<td><?php echo $row['name']."  " ."  ".$row['surname'];?></td>
-												<td><?php echo $row['title']?></td>
+												<td align="center"><img src="images/catelog/<?= $row['photo']; ?>" class="img-fluid mb-1 mt-3" style="border-radius: 50px; display:inline; height: 50px; width:80px;" alt="" ><br><?php echo $row['catelog']?></td>
 												<td><?php echo $row['bookdate'] ?></td>
 												<td><?php echo $row['servicedate']?></td>
 												<td><?php echo $row['contact_person']?></td>
 												<td><?php echo $row['contatcno']?></td>
 												<td><?php echo $row['amount']?></td>
-												<td><span class="badge bg-danger"><?php echo $word  ?></span></td>
+												<td align="right"><h4><span class="badge <?= $class ?>"><?php echo $word  ?></span></h4></td>
 											</tr>
 <?php
 }

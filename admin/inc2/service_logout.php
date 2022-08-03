@@ -7,13 +7,13 @@
                     <i class="align-middle fas fa-cog"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="change_password.php"><i
+                    <a class="dropdown-item" href="service_change_password.php"><i
                             class="align-middle me-1 fas fa-fw fa-cogs"></i> Change password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i
                             class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>View profile</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i
+                    <a class="dropdown-item" id="logout" data-user="service" href="#"><i
                             class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>Logout</a>
 
                 </div>

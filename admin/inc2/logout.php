@@ -10,7 +10,7 @@
                     <a class="dropdown-item" href="change_password.php"><i
                             class="align-middle me-1 fas fa-fw fa-cogs"></i> Change password</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i
+                    <a class="dropdown-item" id="logout" data-user="admin" href="#"><i
                             class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i>Logout</a>
                 </div>
             </li>

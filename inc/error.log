@@ -66,3 +66,4 @@
  Error Code42000 ErrorDetail You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id='1'' at line 1 on occured at Wed27-07-202206:17:15PM in file E:\wamp64\www\home\admin\my_service_servicepro.php at lineno 0
  Error Code23000 ErrorDetail Column 'id' in where clause is ambiguous on occured at Wed27-07-202206:18:24PM in file E:\wamp64\www\home\admin\my_service_servicepro.php at lineno 0
  Error Code23000 ErrorDetail Column 'id' in where clause is ambiguous on occured at Wed27-07-202206:18:25PM in file E:\wamp64\www\home\admin\my_service_servicepro.php at lineno 0
+ Error Code42S22 ErrorDetail Unknown column 'catelog' in 'field list' on occured at Mon01-08-202202:23:52PM in file E:\wamp64\www\home\admin\my_service_servicepro.php at lineno 0

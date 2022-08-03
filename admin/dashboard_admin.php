@@ -1,9 +1,9 @@
 <?php
 require_once("inc2/header.php");
-session_start();
+require_once("../inc/connection.php");
+require_once("inc2/check_admin_login.php");
 ?>
 </head>
-
 <body>
     <div class="splash active">
         <div class="splash-icon"></div>
@@ -28,7 +28,6 @@ session_start();
 require_once("../inc/message.php");
                         ?>  
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 col-lg-3 col-xl">
                             <div class="card">
@@ -37,7 +36,6 @@ require_once("../inc/message.php");
                                         <div class="col mt-0">
                                             <h5 class="card-title">Total Service provider</h5>
                                         </div>
-
                                         <div class="col-auto">
                                             <div class="avatar">
                                                 <div class="avatar-title rounded-circle bg-primary-dark">
@@ -46,7 +44,7 @@ require_once("../inc/message.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <h1 class="display-5 mt-1 mb-3">2530</h1>
+                                    <h1 class="display-5 mt-1 mb-3" id="totservicepro"> </h1>
                                     <div class="mb-0">
                                         <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.65% </span>
                                         Lorem ipsum dolor sit elit.
@@ -70,7 +68,7 @@ require_once("../inc/message.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <h1 class="display-5 mt-1 mb-3">12000</h1>
+                                    <h1 class="display-5 mt-1 mb-3" id="totcatelog"></h1>
                                     <div class="mb-0">
                                         <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.50% </span>
                                         Lorem ipsum dolor sit amet conit.
@@ -83,9 +81,8 @@ require_once("../inc/message.php");
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col mt-0">
-                                            <h5 class="card-title">Total visitors</h5>
+                                            <h5 class="card-title">Service pending</h5>
                                         </div>
-
                                         <div class="col-auto">
                                             <div class="avatar">
                                                 <div class="avatar-title rounded-circle bg-primary-dark">
@@ -308,16 +305,12 @@ require_once("../inc/message.php");
                                             <td><img src="https://picsum.photos/50/50" class="img-fluid" style="border-radius: 50px;" alt=""></td>
                                             <td class="d-none d-xl-table-cell">500</td>
                                             <td>1500</td>
-                                            
                                         </tr>
-                                      
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                       
                     </div>
-
                 </div>
             </main>
         </div>
@@ -410,7 +403,18 @@ require_once("../inc/message.php");
         });
     </script>
     <!-- above code is for pie chart -->
-
+    <script>
+        $(document).ready(function(){
+            console.log("Jquery working");
+            var page="dashboard_admin_data.php";
+            $.get(page,function(data,status){
+                alert(data);
+                data = JSON.parse(data);
+                alert(data[0]['row_count']);
+                $('#totservicepro').html(data[0]['row_count']);
+                $('#totcatelog').html(data[1]['row_count']);
+            });
+        });
+    </script>
 </body>
-
 </html>
