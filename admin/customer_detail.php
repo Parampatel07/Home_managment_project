@@ -16,7 +16,6 @@ try {
 // var_dump($_REQUEST);
 ?>
 </head>
-
 <body>
     <div class="splash active">
         <div class="splash-icon"></div>
@@ -105,5 +104,4 @@ try {
     require_once("inc2/script.php");
     ?>
 </body>
-
 </html>

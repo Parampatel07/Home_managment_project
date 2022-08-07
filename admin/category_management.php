@@ -96,7 +96,7 @@ require_once("inc2/check_admin_login.php");
                                                     <th>Image</th>
                                                     <th width="40%">Description</th>
                                                     <th>Operations</th>
-                                                </tr>
+                                                </tr>   
                                             </thead>
                                             <tbody>
                                                 <?php

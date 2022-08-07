@@ -29,3 +29,56 @@ till catelog
 SELECT  COUNT(*) AS row_count FROM house_management .service_provider UNION                         
 SELECT  COUNT(*) AS row_count FROM house_management.catelog UNION
 SELECT COUNT(*) AS row_count FROM house_management.service_book;
+
+
+
+this is full query for admin dashboard
+----------------------------------
+SELECT 'service_pro_total' AS service_book, COUNT(*) AS row_count FROM house_management .service_provider UNION                         
+SELECT 'catelog_total' AS catelog, COUNT(*) AS row_count FROM house_management.catelog UNION
+
+SELECT 'service_pending' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE STATUS = 2 UNION 
+
+SELECT 'service_done' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE STATUS = 3
+
+-------------------------------------
+Query to get entry on the basis of month 
+
+select *
+from service_book
+WHERE month(servicedate)=7;
+
+-----------------------------------
+query to booked/completed section
+
+SELECT 'service_pro_total' AS service_book, COUNT(*) AS row_count FROM house_management .service_provider UNION SELECT 'catelog_total' AS catelog, COUNT(*) AS row_count FROM house_management.catelog UNION SELECT 'service_pending' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE STATUS = 2 UNION SELECT 'service_done' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE STATUS = 3 UNION SELECT 'booked/completed' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE month(servicedate)=9; 
+
+
+--------------------------------------------------------------------
+SELECT 'service_pro_total' AS service_book, COUNT(*) AS row_count FROM house_management .service_provider UNION SELECT 'catelog_total' AS catelog, COUNT(*) AS row_count FROM house_management.catelog UNION SELECT 'service_pending' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE STATUS = 2 UNION SELECT 'service_done' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE STATUS = 3 UNION SELECT 'booked/completed' AS service_book,COUNT(*) AS row_count FROM house_management.service_book WHERE month(servicedate)=9 UNION
+
+SELECT 'total_requested' AS service_requested ,COUNT(*) AS row_count FROM house_management.service_book WHERE status=1 UNION
+
+SELECT 'total_accepted' AS service_requested ,COUNT(*) AS row_count FROM house_management.service_book WHERE status=2 UNION
+
+SELECT 'total_served' AS service_requested ,COUNT(*) AS row_count FROM house_management.service_book WHERE status=3 UNION
+
+SELECT 'total_rejected' AS service_requested ,COUNT(*) AS row_count FROM house_management.service_book WHERE status=4;
+
+------------------------------
+query to get maximum duplicate to minimum duplicate entry
+-------------------------------------------------------------
+SELECT DISTINCT catelogid FROM service_book; 
+
+SELECT id,title FROM category WHERE id in (SELECT id from service_provider where )
+
+SELECT service_proid,COUNT(service_proid) FROM service_book;
+
+(SELECT DISTINCT service_proid FROM service_book);
+
+SELECT categoryid from service_provider where id in (SELECT DISTINCT service_proid FROM service_book); 
+
+-------------------------------------------
+query for getting category in order when reference of category is taken from reference of ,reference of another table
+------------------------------------------
+SELECT id,title FROM category where id in(SELECT categoryid from service_provider where id in (SELECT DISTINCT service_proid FROM service_book));   

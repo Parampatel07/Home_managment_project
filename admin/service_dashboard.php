@@ -47,7 +47,7 @@ require_once("../inc/message.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <h1 class="display-5 mt-1 mb-3">2530</h1>
+                                    <h1 class="display-5 mt-1 mb-3" id="service_comp"></h1>
                                     <div class="mb-0">
                                         <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.65% </span>
                                         Lorem ipsum dolor sit elit.
@@ -71,7 +71,7 @@ require_once("../inc/message.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <h1 class="display-5 mt-1 mb-3">12000</h1>
+                                    <h1 class="display-5 mt-1 mb-3" id="tot_accep"></h1>
                                     <div class="mb-0">
                                         <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.50% </span>
                                         Lorem ipsum dolor sit amet conit.
@@ -95,7 +95,7 @@ require_once("../inc/message.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <h1 class="display-5 mt-1 mb-3">29870</h1>
+                                    <h1 class="display-5 mt-1 mb-3" id="tot_req"></h1>
                                     <div class="mb-0">
                                         <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -4.25% </span>
                                         Lorem ipsum dolor sit amet consectetur.
@@ -118,7 +118,7 @@ require_once("../inc/message.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <h1 class="display-5 mt-1 mb-3">894</h1>
+                                    <h1 class="display-5 mt-1 mb-3" id="tot_reje"></h1>
                                     <div class="mb-0">
                                         <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 8.35% </span>
                                         Lorem ipsum dolor sit amet.
@@ -232,6 +232,23 @@ require_once("../inc/message.php");
     <?php
     require_once("inc2/script.php");
     ?>
+    <script>
+        var cards=new Array;
+        $(document).ready(function(){
+            console.log("Jquery working");
+            var page="service_dashboard_data.php";
+            $.get(page,function(data,status){
+                data=JSON.parse(data);
+                // console.log(data);
+                cards.push(data);
+                // console.log(cards[0][0]);
+                $('#tot_req').html(cards[0][0]['row_count']);
+                $('#tot_accep').html(cards[0][1]['row_count']);
+                $('#service_comp').html(cards[0][2]['row_count']);
+                $('#tot_reje').html(cards[0][3]['row_count']);
+            });
+        });
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Radar chart
