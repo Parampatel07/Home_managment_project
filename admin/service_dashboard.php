@@ -27,7 +27,7 @@ require_once("inc2/header.php");
                             Service provider name - analysis
                         </h1>
                         <?php
-require_once("../inc/message.php");
+                        require_once("../inc/message.php");
                         ?>
                     </div>
                     <div class="row">
@@ -127,9 +127,9 @@ require_once("../inc/message.php");
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-5">
                         <div class="col-12 col-md-12 col-xxl-12 d-flex">
-                            <div class="card flex-fill w-100">
+                            <div class="card flex-fill w-100 shadow">
                                 <div class="card-header">
                                     <h5 class="card-title mb-0">Catelog</h5>
                                 </div>
@@ -141,90 +141,14 @@ require_once("../inc/message.php");
                                             <th class="d-none d-xl-table-cell w-75">Booked time</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Semi dulex</td>
-                                            <td class="text-end">1500</td>
-                                            <td class="d-none d-xl-table-cell">
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-primary-dark" role="progressbar" style="width: 89%;" aria-valuenow="890" aria-valuemin="0" aria-valuemax="1000">890</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Twin shared</td>
-                                            <td class="text-end">1200</td>
-                                            <td class="d-none d-xl-table-cell">
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-primary-dark" role="progressbar" style="width: 27%;" aria-valuenow="270" aria-valuemin="0" aria-valuemax="1000">270</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Casusal</td>
-                                            <td class="text-end">500</td>
-                                            <td class="d-none d-xl-table-cell">
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-primary-dark" role="progressbar" style="width: 94%;" aria-valuenow="940" aria-valuemin="0" aria-valuemax="1000">940</div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Twin shared</td>
-                                            <td class="text-end">1200</td>
-                                            <td class="d-none d-xl-table-cell">
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-primary-dark" role="progressbar" style="width: 27%;" aria-valuenow="270" aria-valuemin="0" aria-valuemax="1000">270</div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    <tbody id="line_chart">
+
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-xxl-4 d-flex">
-                            <div class="card flex-fill">
-                                <div class="card-header">
-                                    <h5 class="card-title mb-0">My Progress</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart">
-                                        <canvas id="chartjs-dashboard-radar"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-6 col-xxl-3 d-flex">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header">
-                                    <div class="card-actions float-end">
-                                        <a href="#" class="me-1">
-                                            <i class="align-middle" data-feather="refresh-cw"></i>
-                                        </a>
-                                        <div class="d-inline-block dropdown show">
-                                            <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-                                                <i class="align-middle" data-feather="more-vertical"></i>
-                                            </a>
-
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h5 class="card-title mb-0">Monthly Sales</h5>
-                                </div>
-                                <div class="card-body d-flex w-100">
-                                    <div class="align-self-center chart chart-lg">
-                                        <canvas id="chartjs-dashboard-bar"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 
                 </div>
             </main>
         </div>
@@ -233,19 +157,39 @@ require_once("../inc/message.php");
     require_once("inc2/script.php");
     ?>
     <script>
-        var cards=new Array;
-        $(document).ready(function(){
+        function line_chart(title, amount, booking) {
+            var line_row = ` <tr>
+                                            <td>${title}</td>
+                                            <td class="text-end">${amount}</td>
+                                            <td class="d-none d-xl-table-cell">
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-primary-dark" role="progressbar" style="width: ${booking}%;" aria-valuenow="890" aria-valuemin="0" aria-valuemax="1000">${booking}</div>
+                                                </div>
+                                            </td>
+                                        </tr>`;
+            $("#line_chart").append(line_row);
+        }
+        var cards = new Array;
+        var line_graph = new Array;
+        $(document).ready(function() {
             console.log("Jquery working");
-            var page="service_dashboard_data.php";
-            $.get(page,function(data,status){
-                data=JSON.parse(data);
+            var page = "service_dashboard_data.php";
+            $.get(page, function(data, status) {
+                data = JSON.parse(data);
                 // console.log(data);
-                cards.push(data);
+                cards.push(data[0]);
                 // console.log(cards[0][0]);
                 $('#tot_req').html(cards[0][0]['row_count']);
                 $('#tot_accep').html(cards[0][1]['row_count']);
                 $('#service_comp').html(cards[0][2]['row_count']);
                 $('#tot_reje').html(cards[0][3]['row_count']);
+                line_graph.push(data[1]);
+                console.log(line_graph);
+                console.log(line_graph[0][0][0]['bookings']);
+                // console.log(line_graph[0].length);
+                for (i = 0; i < line_graph[0].length; i++) {
+                    line_chart(line_graph[0][i][0]['title'], line_graph[0][i][0]['amount'], line_graph[0][i][0]['bookings']);
+                }
             });
         });
     </script>

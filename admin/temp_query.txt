@@ -82,3 +82,9 @@ SELECT categoryid from service_provider where id in (SELECT DISTINCT service_pro
 query for getting category in order when reference of category is taken from reference of ,reference of another table
 ------------------------------------------
 SELECT id,title FROM category where id in(SELECT categoryid from service_provider where id in (SELECT DISTINCT service_proid FROM service_book));   
+
+
+SELECT c.amount,c.title,COUNT(*) from service_book ,catelog c WHERE catelogid=4 AND c.id=4;
+
+
+

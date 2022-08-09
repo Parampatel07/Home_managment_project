@@ -1,12 +1,15 @@
 <?php
-require_once("inc/header.php")
+session_start();
+require_once("inc/header.php");
+require_once("inc/connection.php");
 ?>
 </head>
 
 <body>
     <?php
-require_once("inc/menu.php")
-?>
+    require_once("inc/menu.php");
+    require_once("inc/message.php");
+    ?>
     <!-- do work area -->
     <div class="slider-area margin-bottom-80">
         <div class="bend niceties preview-2">
@@ -102,24 +105,28 @@ require_once("inc/menu.php")
         </div>
         <div class="active-best-sell-2 navigation-top-right">
             <!-- Single-best-sell-2 Start -->
-            <div class="single-best-sell-2">
-                <img src="https://picsum.photos/337/281" alt="" />
-                <div class="best-sell-2-brief">
-                    <h3><a href="#">Plumbers</a></h3>
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                    <a href="providers.php" class="shop-now">See more</a>
-                </div>
-            </div>
+            <?php
+            $sql = "SELECT * from category";
+            $row = FetchRow($sql);
+            // var_dump($row);
+            ?>
             <!-- Single-best-sell-2 End -->
             <!-- Single-best-sell-2 Start -->
-            <div class="single-best-sell-2">
-                <img src="https://picsum.photos/337/282" alt="" />
-                <div class="best-sell-2-brief">
-                    <h3><a href="#">Mehndi Artist</a></h3>
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                    <a href="providers.php" class="shop-now">See more</a>
+            <?php
+            foreach ($row as $key => $value) {
+                // var_dump($value);
+            ?>
+                <div class="single-best-sell-2">
+                    <img src="admin/images/category/<?= $value['photo'] ?>" alt="" />
+                    <div class="best-sell-2-brief">
+                        <h3><a href="#"><?= $value['title'] ?></a></h3>
+                        <p><?= $value['description']?></p>
+                        <a href="providers.php" class="shop-now">See more</a>
+                    </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
             <!-- Single-best-sell-2 End -->
             <!-- Single-best-sell-2 Start -->
             <div class="single-best-sell-2">
@@ -414,11 +421,16 @@ require_once("inc/menu.php")
     <!-- SHOP-AREA END -->
     <!-- They are with us  -->
     <?php
-require_once("inc/footer.php");
-?>
+    require_once("inc/footer.php");
+    ?>
     <?php
-require_once("inc/script.php");
-?>
+    require_once("inc/script.php");
+    ?>
+    <script>
+        $(document).ready(function() {
+            console.log("Jquery working");
+        });
+    </script>
 </body>
 
 </html>

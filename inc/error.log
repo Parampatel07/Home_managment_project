@@ -87,3 +87,12 @@
  Error Code42000 ErrorDetail You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? and status = 3' at line 1 on occured at Fri05-08-202208:30:19AM in file E:\wamp64\www\home\admin\dashboard_admin_data.php at lineno 0
 
  
+ Error CodeHY000 ErrorDetail  on occured at Sun07-08-202204:42:32PM in file E:\wamp64\www\home\admin\service_dashboard_data.php at lineno 0
+ Error Code42000 ErrorDetail You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(surname,name,fathername,gender,address1,address2,city,state,mobile,email,passwo' at line 1 on occured at Tue09-08-202210:45:10AM in file connection.php at lineno 0
+ Error Code42000 ErrorDetail You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(surname,name,fathername,gender,address1,address2,city,state,mobile,email,passwo' at line 1 on occured at Tue09-08-202210:45:54AM in file connection.php at lineno 0
+
+
+
+ 
+ Error CodeHY093 ErrorDetail  on occured at Tue09-08-202212:43:47PM in file connection.php at lineno 0
+ Error CodeHY093 ErrorDetail  on occured at Tue09-08-202212:44:47PM in file connection.php at lineno 0

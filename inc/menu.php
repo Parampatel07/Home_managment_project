@@ -52,9 +52,9 @@
                                         <li><a href="login.php">Login</a></li>
                                         <li><a href="forgot_password.php">Forgot Password</a></li>
                                         <li><a href="change_password.php">Change Password</a></li>
-                                        <li><a href="register_create.php">Register</a></li>
-                                        <li><a href="../admin/customer_create_profile.php">Create Profile</a></li>
+                                        <li><a href="admin/customer_create_profile.php">Register</a></li>
                                         <li><a href="booked_service.php">MY booked service</a></li>
+                                        <li><a href="admin/service_create_profile.php" style="font-size:0.6rem ;">Register as Service Provider</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -70,7 +70,7 @@
                 <a href="booked_service.php" class="btn btn-dark">Booked Service</a>
                 <a href="feedback.php" class="btn btn-dark">Feedback</a>
                 <a href="index.php" class="btn btn-dark">Home</a>
-				<div class="container">
+				<!-- <div class="container">
 					<div class="row">
 						<div class="col-12">
 							<div class="mobile-menu">
@@ -116,7 +116,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<!-- Mobile-menu end -->
 </header>
