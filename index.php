@@ -4,7 +4,6 @@ require_once("inc/header.php");
 require_once("inc/connection.php");
 ?>
 </head>
-
 <body>
     <?php
     require_once("inc/menu.php");
@@ -93,7 +92,7 @@ require_once("inc/connection.php");
     <!-- end of do work area -->
     <!-- BEST-SELL-AREA START -->
     <!-- BEST-SELL-AREA-2 START -->
-    <div class="best-sell-2-area  margin-bottom-80">
+    <div class="best-sell-2-area  margin-bottom-80 ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -103,10 +102,10 @@ require_once("inc/connection.php");
                 </div>
             </div>
         </div>
-        <div class="active-best-sell-2 navigation-top-right">
+        <div class="active-best-sell-2 navigation-top-right ">
             <!-- Single-best-sell-2 Start -->
             <?php
-            $sql = "SELECT * from category";
+            $sql = "SELECT c.* from category c";
             $row = FetchRow($sql);
             // var_dump($row);
             ?>
@@ -117,11 +116,10 @@ require_once("inc/connection.php");
                 // var_dump($value);
             ?>
                 <div class="single-best-sell-2">
-                    <img src="admin/images/category/<?= $value['photo'] ?>" alt="" />
+                    <img src="admin/images/category/<?= $value['photo']  ?>" style="height : 257px; widht:337px" alt="" />
                     <div class="best-sell-2-brief">
                         <h3><a href="#"><?= $value['title'] ?></a></h3>
-                        <p><?= $value['description']?></p>
-                        <a href="providers.php" class="shop-now">See more</a>
+                        <a href="providers.php?categoryid=<?php echo $value['id'] ?>&categoryname=<?php echo $value['title'] ?>&image=<?php echo $value['photo'] ?>" class="shop-now">View Category</a>
                     </div>
                 </div>
             <?php
@@ -129,42 +127,11 @@ require_once("inc/connection.php");
             ?>
             <!-- Single-best-sell-2 End -->
             <!-- Single-best-sell-2 Start -->
-            <div class="single-best-sell-2">
-                <img src="https://picsum.photos/337/283" alt="" />
-                <div class="best-sell-2-brief">
-                    <h3><a href="#">Tutior</a></h3>
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                    <a href="providers.php" class="shop-now">See more</a>
-                </div>
-            </div>
-            <!-- Single-best-sell-2 End -->
-            <!-- Single-best-sell-2 Start -->
-            <div class="single-best-sell-2">
-                <img src="https://picsum.photos/337/284" alt="" />
-                <div class="best-sell-2-brief">
-                    <h3><a href="#">Event manager</a></h3>
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                    <a href="providers.php" class="shop-now">See more</a>
-                </div>
-            </div>
-            <!-- Single-best-sell-2 End -->
-            <!-- Single-best-sell-2 Start -->
-            <div class="single-best-sell-2">
-                <img src="https://picsum.photos/337/285" alt="" />
-                <div class="best-sell-2-brief">
-                    <h3><a href="#">Layer</a></h3>
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                    <a href="providers.php" class="shop-now">See more</a>
-                </div>
-            </div>
             <!-- Single-best-sell-2 End -->
         </div>
     </div>
     <!-- BEST-SELL-AREA-2 END -->
     <!-- BEST-SELL-AREA END -->
-
-
-
     <!-- They are with us  -->
     <!-- BRAND-LOGO-AREA START -->
     <div class="brand-logo-area margin-bottom-80" style="background-color: #F1F1F1 !important;">
@@ -217,155 +184,44 @@ require_once("inc/connection.php");
         </div>
         <div id="active-product" class="product-slider">
             <!-- Single-product start -->
+            <?php
+            try
+            {
+                $sql="SELECT sp.id,sp.title,sp.logo,c.title 'category_name' from service_provider sp,category c where sp.categoryid=c.id";
+                $row=FetchRow($sql);
+                // var_dump($row);
+            }
+            catch(PDOException $error)
+            {
+                LogError($error,__FILE__);
+            }
+            ?>
+<?php
+foreach($row as $key => $value)
+{
+    // var_dump($value)
+?>
+
             <div class="single-product">
                 <div class="product-photo">
                     <a href="#">
-                        <img class="primary-photo" src="https://picsum.photos/267/315" alt="" />
-                        <img class="secondary-photo" src="https://picsum.photos/267/314" alt="" />
+                        <img class="primary-photo" src="admin/images/service_provider/<?= $value['logo'] ?>" style="height: 316px; width: 267px;" alt="" />
+                        <img class="secondary-photo" src="admin/images/service_provider/<?= $value['logo'] ?>" style="height: 316px; width: 267px;" alt="" />
                     </a>
                     <div class="pro-action">
-                        <a href="catelog.php" class="action-btn"><i class="sp-compare-alt"></i><span>View
+                        <a href="catelog.php?service_proid=<?php echo $value['id'] ?>" class="action-btn"><i class="sp-compare-alt"></i><span>View
                                 Catelogs</span></a>
                     </div>
                 </div>
                 <div class="product-brief">
-                    <div class="pro-rating">
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-2"></i></a>
-                    </div>
+                    
                     <h2><a href="catelog.php">Kamlesh josi</a></h2>
                     <h3>Plumber</h3>
                 </div>
             </div>
-            <!-- Single-product end -->
-            <!-- Single-product start -->
-            <div class="single-product">
-                <div class="product-photo">
-                    <a href="#">
-                        <img class="primary-photo" src="https://picsum.photos/267/316" alt="" />
-                        <img class="secondary-photo" src="https://picsum.photos/267/317" alt="" />
-                    </a>
-                    <div class="pro-action">
-                        <a href="catelog.php" class="action-btn"><i class="sp-compare-alt"></i><span>View
-                                Catelogs</span></a>
-                    </div>
-                </div>
-                <div class="product-brief">
-                    <div class="pro-rating">
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-2"></i></a>
-                    </div>
-                    <h2><a href="catelog.php">kritish pandya</a></h2>
-                    <h3>Mendi Artist</h3>
-                </div>
-            </div>
-            <!-- Single-product end -->
-            <!-- Single-product start -->
-            <div class="single-product">
-                <div class="product-photo">
-                    <a href="#">
-                        <img class="primary-photo" src="https://picsum.photos/267/318" alt="" />
-                        <img class="secondary-photo" src="https://picsum.photos/267/319" alt="" />
-                    </a>
-                    <div class="pro-action">
-                        <a href="catelog.php" class="action-btn"><i class="sp-compare-alt"></i><span>View
-                                Catelogs</span></a>
-                    </div>
-                </div>
-                <div class="product-brief">
-                    <div class="pro-rating">
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-2"></i></a>
-                    </div>
-                    <h2><a href="catelog.php">Hardik joshi</a></h2>
-                    <h3>Tution's</h3>
-                </div>
-            </div>
-            <!-- Single-product end -->
-            <!-- Single-product start -->
-            <div class="single-product">
-                <div class="product-photo">
-                    <a href="#">
-                        <img class="primary-photo" src="https://picsum.photos/267/319" alt="" />
-                        <img class="secondary-photo" src="https://picsum.photos/267/317" alt="" />
-                    </a>
-                    <div class="pro-action">
-                        <a href="catelog.php" class="action-btn"><i class="sp-compare-alt"></i><span>View
-                                Catelogs</span></a>
-                    </div>
-                </div>
-                <div class="product-brief">
-                    <div class="pro-rating">
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-2"></i></a>
-                    </div>
-                    <h2><a href="catelog.php">kartik tyagi</a></h2>
-                    <h3>Fashion desiner</h3>
-                </div>
-            </div>
-            <!-- Single-product end -->
-            <!-- Single-product start -->
-            <div class="single-product">
-                <div class="product-photo">
-                    <a href="#">
-                        <img class="primary-photo" src="https://picsum.photos/267/314" alt="" />
-                        <img class="secondary-photo" src="https://picsum.photos/267/320" alt="" />
-                    </a>
-                    <div class="pro-action">
-                        <a href="catelog.php" class="action-btn"><i class="sp-compare-alt"></i><span>View
-                                Catelogs</span></a>
-                    </div>
-                </div>
-                <div class="product-brief">
-                    <div class="pro-rating">
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-2"></i></a>
-                    </div>
-                    <h2><a href="catelog.php">Hemang Bhayani</a></h2>
-                    <h3>Event manager</h3>
-                </div>
-            </div>
-            <!-- Single-product end -->
-            <!-- Single-product start -->
-            <div class="single-product">
-                <div class="product-photo">
-                    <a href="#">
-                        <img class="primary-photo" src="https://picsum.photos/267/314/" alt="" />
-                        <img class="secondary-photo" src="https://picsum.photos/267/315" alt="" />
-                    </a>
-                    <div class="pro-action">
-                        <a href="catelog.php" class="action-btn"><i class="sp-compare-alt"></i><span>View
-                                Catelogs</span></a>
-                    </div>
-                </div>
-                <div class="product-brief">
-                    <div class="pro-rating">
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-1"></i></a>
-                        <a href="#"><i class="sp-star rating-2"></i></a>
-                    </div>
-                    <h2><a href="catelog.php">Ayush patel</a></h2>
-                    <h3>Lawyer</h3>
-                </div>
-            </div>
-            <!-- Single-product end -->
+<?php
+}
+?>
         </div>
     </div>
     <!-- PRODUCT-AREA END -->

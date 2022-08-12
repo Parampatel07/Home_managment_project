@@ -1,30 +1,60 @@
 <?php
-require_once("inc/header.php")
+session_start();
+require_once("inc/header.php");
+require_once("inc/connection.php");
+$sql="SELECT sp.logo,ct.id  as 'categoryid' from service_provider sp,category ct where sp.id=? and sp.categoryid=ct.id";
+$stat=$db->prepare($sql);
+$stat->setFetchMode(PDO::FETCH_ASSOC);
+$stat->bindparam(1,$_REQUEST['service_proid']);
+$stat->execute();
+$other=$stat->fetch();
+// var_dump($other);
 ?>
-</head>
+<style>
+    .background {
+        background-image: url('admin/images/service_provider/<?php echo $other['logo'];?>');
+        /* background-repeat:no-repeat ; */
+        background-size: 750px 100%;
+        /* vertical-align: baseline; */
+    }
 
+    .effect:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        border-radius: 20px;
+    }
+</style>
+</head>
 <body>
     <?php
-require_once("inc/menu.php")
-?>
+    require_once("inc/menu.php");
+    try {
+        $sql = "SELECT  sp.title as 'service_provider',sp.slogan as 'slogans',c.* from service_provider sp,catelog c where sp.id=? and sp.id=c.service_proid";
+        $data=[$_REQUEST['service_proid']];
+        $table = FetchRow($sql,$data);
+        // var_dump($table);
+        // var_dump($_REQUEST);
+    } catch (PDOException $error) {
+        LogError($error, __FILE__);
+    }
+    ?>
     <!-- do work area -->
     <!-- PAGE-CONTENT START -->
     <section class="page-content">
         <!-- PAGE-BANNER START -->
-        <div class="page-banner-area margin-bottom-80">
+        <div class="background margin-bottom-80" style="height: 250px; ">
             <div class="container">
                 <!-- <div class="row"> -->
-                    <div class="col-lg-12">
-                        <div class="page-banner-menu">
-                            <h2 class="page-banner-title">Shop</h2>
-                            <ul>
-                                <li><a href="index.html">home</a></li>
-                                <li>Shop List</li>
-                            </ul>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="page-banner-menu ">
+                        <h2 class="page-banner-title"><?php echo $table[0]['service_provider']; ?></h2>
+                        <ul>
+                            <li><a href="index.html"><?php echo $table[0]['slogans'] ?></a></li>
+                            <!-- <li>Shop List</li> -->
+                        </ul>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <!-- PAGE-BANNER END -->
         <!-- SHOP-AREA START -->
@@ -44,122 +74,39 @@ require_once("inc/menu.php")
                             <div role="tabpanel" class="tab-pane active" id="list-view">
                                 <div class="row shop-list">
                                     <!-- Single-product start -->
-                                    <div class="col-lg-12">
-                                        <div class="single-product">
-                                            <div class="product-photo">
-                                                <a href="#">
-                                                    <img class="primary-photo" src="https://picsum.photos/287/300"
-                                                        alt="" />
-                                                    <img class="secondary-photo" src="https://picsum.photos/287/301"
-                                                        alt="" />
-                                                </a>
-                                            </div>
-                                            <div class="product-brief">
-                                                <h2><a href="#">Dulex Service</a></h2>
-                                                <h3>Rs 1500</h3>
-                                                <div class="porduct-desc">
-                                                    <p>Pellentesque habitant morbi tristique senectus et netus et
-                                                        malesuada fames ac turpis egestas. Vestibulum tortor quam,
-                                                        feugiat vitae, ultricies eget, temporamet, ante. Donec eu libero
-                                                        sit amet quam egestas semper. Aenean ultricies mi vitae est.
-                                                        Mauris placerat eleifend leo.</p>
+                                    <?php
+                                    foreach ($table as $key => $values) {
+                                    ?>
+                                        <div class="col-lg-12 effect p-5">
+                                            <div class="single-product ">
+                                                <div class="product-photo ">
+                                                    <img class="primary-photo" src="admin/images/catelog/<?php echo $values['photo'] ?>" style="height: 364px; width: 364px;" alt="" />
                                                 </div>
-                                                <div class="pro-quick-view">
-                                                    <div class="quick-view">
-                                                        <a href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#productModal" title="Quick View">Quick
-                                                            View</a>
+                                                <div class="product-brief">
+                                                    <h2><?= $values['title']; ?></h2>
+                                                    <h3><?php echo $values['amount']; ?></h3>
+                                                    <div class="porduct-desc">
+                                                        <p><?php echo $values['detail']; ?></p>
                                                     </div>
-                                                    <div class="pro-rating">
+                                                    <div class="pro-quick-view">
+                                                        <div class="quick-view">
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#productModal" class="btn btn-success quick_view" data-id="<?php echo $values['id']; ?>" title="Quick View">Quick
+                                                                View</a>
+                                                        </div>
+                                                        <!-- <div class="pro-rating">
                                                         <a href="#"><i class="sp-star rating-1"></i></a>
                                                         <a href="#"><i class="sp-star rating-1"></i></a>
                                                         <a href="#"><i class="sp-star rating-1"></i></a>
                                                         <a href="#"><i class="sp-star rating-1"></i></a>
                                                         <a href="#"><i class="sp-star rating-2"></i></a>
+                                                    </div> -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="col-lg-12">
-                                        <div class="single-product">
-                                            <div class="product-photo">
-                                                <a href="#">
-                                                    <img class="primary-photo" src="https://picsum.photos/287/299"
-                                                        alt="" />
-                                                    <img class="secondary-photo" src="https://picsum.photos/287/298"
-                                                        alt="" />
-                                                </a>
-                                            </div>
-                                            <div class="product-brief">
-                                                <h2><a href="#">Semi dulex service</a></h2>
-                                                <h3>Rs 1000</h3>
-                                                <div class="porduct-desc">
-                                                    <p>Pellentesque habitant morbi tristique senectus et netus et
-                                                        malesuada fames ac turpis egestas. Vestibulum tortor quam,
-                                                        feugiat vitae, ultricies eget, temporamet, ante. Donec eu libero
-                                                        sit amet quam egestas semper. Aenean ultricies mi vitae est.
-                                                        Mauris placerat eleifend leo.</p>
-                                                </div>
-                                                <div class="pro-quick-view">
-                                                    <div class="quick-view">
-                                                        <a href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#productModal" title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-2"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="col-lg-12">
-                                        <div class="single-product">
-                                            <div class="product-photo">
-                                                <a href="#">
-                                                    <img class="primary-photo" src="https://picsum.photos/287/302"
-                                                        alt="" />
-                                                    <img class="secondary-photo" src="https://picsum.photos/287/303"
-                                                        alt="" />
-                                                </a>
-                                            </div>
-                                            <div class="product-brief">
-                                                <h2><a href="#">Regular Service</a></h2>
-                                                <h3>Rs 500</h3>
-                                                <div class="porduct-desc">
-                                                    <p>Pellentesque habitant morbi tristique senectus et netus et
-                                                        malesuada fames ac turpis egestas. Vestibulum tortor quam,
-                                                        feugiat vitae, ultricies eget, temporamet, ante. Donec eu libero
-                                                        sit amet quam egestas semper. Aenean ultricies mi vitae est.
-                                                        Mauris placerat eleifend leo.</p>
-                                                </div>
-                                                <div class="pro-quick-view">
-                                                    <div class="quick-view">
-                                                        <a href="#" data-bs-toggle="modal"
-                                                            data-bs-target="#productModal" title="Quick View">Quick
-                                                            View</a>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-1"></i></a>
-                                                        <a href="#"><i class="sp-star rating-2"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -178,8 +125,7 @@ require_once("inc/menu.php")
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body">
                             <div class="modal-product">
@@ -187,7 +133,7 @@ require_once("inc/menu.php")
                                     <div class="main-image images">
                                         <img alt="#" src="https://picsum.photos/300/400" />
                                     </div>
-                                    
+
                                 </div><!-- .product-images -->
 
                                 <div class="product-info">
@@ -195,36 +141,35 @@ require_once("inc/menu.php")
                                     <div class="price-box-3">
                                         <hr />
                                         <div class="s-price-box">
-                                            Dulex Service
+                                            <?php echo $values['title'] ?>
                                         </div>
                                         <hr />
                                     </div>
-                                    <form action="#">
+                                    <form action="booking_service.php" method="POST" name="myform" id="myform">
                                         <div class="row">
-                                            <div class="col-lg-6 mb-3">
-                                                <label for="" class="form-label">Today's Date</label>
-                                                <input type="date" name="bookdate" readonly class="form-control">
+                                            <div class="col-lg-6  mb-3">
+                                                <label for="" class="form-label">Amount</label>
+                                                <input type="number" name="amount" value="" class="form-control amountval" readonly>
                                             </div>
                                             <div class="col-lg-6 mb-3">
                                                 <label for="" class="form-label">Service Date</label>
                                                 <input type="date" name="servicedate" class="form-control" required>
-                                            </div> 
+                                            </div>
                                             <div class="col-lg-6  mb-3">
                                                 <label for="" class="form-label">Service time</label>
                                                 <input type="time" name="servicetime" class="form-control" id="" required>
                                             </div>
                                             <div class="col-lg-6  mb-3">
                                                 <label for="" class="form-label">Contact number</label>
-                                                <input type="number" name="contact" class="form-control" id="" placeholder="Your contact here" required>
+                                                <input type="tel" name="contact_number" class="form-control" id="contact_number" placeholder="Your contact here" required>
                                             </div>
                                             <div class="col-lg-12  mb-3">
                                                 <label for="" class="form-label">Enter your name </label>
                                                 <input type="name" name="contact" class="form-control" id="" placeholder="Name of person to whom service is to be given" required>
+                                                <input type="hidden" name="categoryid" value="<?= $other['categoryid']; ?>">
+                                                <input type="hidden" name="service_proid" value="<?= $_REQUEST['service_proid']; ?>">
                                             </div>
-                                            <div class="col-lg-6  mb-3">
-                                                <label for="" class="form-label">Amount</label>
-                                                <input type="number" name="amount" value="1500" class="form-control" readonly>
-                                            </div>
+
                                             <div class="col-lg-6 mb-3 text-end">
                                                 <label for="">Confirm booking</label>
                                                 <input type="submit" class="btn btn-success" value="Book Service">
@@ -321,16 +266,29 @@ require_once("inc/menu.php")
         <!-- SERVICE-AREA END -->
     </section>
     <!-- PAGE-CONTENT END -->
-
-
-    <!-- end of do work area -->
-
     <?php
-require_once("inc/footer.php");
-?>
+    require_once("inc/footer.php");
+    ?>
     <?php
-require_once("inc/script.php");
-?>
+    require_once("inc/script.php");
+    ?>
+    <script>
+        $(document).ready(function() {
+            console.log("Jquery working");
+            $('body').on('click','.quick_view', function(){
+                var id=$(this).attr('data-id');
+                console.log(id);
+                var page = "ajax/get_amount.php?catelogid="+id;
+                $.get(page, function(data, status) {
+                    data=JSON.parse(data);
+                    var amount=parseInt(data[0][0]);
+                    console.log(amount);
+                    $('.amountval').val(amount)
+                });
+            });
+
+        });
+    </script>
 </body>
 
 </html>
