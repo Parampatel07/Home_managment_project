@@ -165,6 +165,7 @@ require_once("../inc/connection.php");
                     processData: false,
                     success: function(data) {
                         console.log(data);
+                        $(location).attr('href','service_dashboard.php');
                     }
                 });
 

@@ -133,3 +133,9 @@
 
  
  Error Code42S22 ErrorDetail Unknown column 'contactno' in 'field list' on occured at Fri12-08-202211:19:39AM in file connection.php at lineno 0
+ Error Code23000 ErrorDetail Column 'service_proid' in where clause is ambiguous on occured at Fri12-08-202204:04:41PM in file E:\wamp64\www\home\admin\service_dashboard_data.php at lineno 0
+ Error Code23000 ErrorDetail Column 'service_proid' in where clause is ambiguous on occured at Fri12-08-202204:07:43PM in file E:\wamp64\www\home\admin\service_dashboard_data.php at lineno 0
+ Error Code23000 ErrorDetail Column 'service_proid' in where clause is ambiguous on occured at Fri12-08-202204:07:49PM in file E:\wamp64\www\home\admin\service_dashboard_data.php at lineno 0
+ Error Code23000 ErrorDetail Column 'service_proid' in where clause is ambiguous on occured at Fri12-08-202204:08:17PM in file E:\wamp64\www\home\admin\service_dashboard_data.php at lineno 0
+ Error Code23000 ErrorDetail Column 'service_proid' in where clause is ambiguous on occured at Fri12-08-202204:08:18PM in file E:\wamp64\www\home\admin\service_dashboard_data.php at lineno 0
+ Error Code23000 ErrorDetail Column 'service_proid' in where clause is ambiguous on occured at Fri12-08-202204:08:19PM in file E:\wamp64\www\home\admin\service_dashboard_data.php at lineno 0

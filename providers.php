@@ -22,7 +22,7 @@ require_once("inc/menu.php")
     <section class="page-content">
         <!-- PAGE-BANNER START -->
         <?php
-$sql="SELECT id,title,slogan,logo from service_provider where categoryid=?";
+$sql="SELECT id,title,slogan,logo,name,surname from service_provider where categoryid=?";
 $data=array($_REQUEST['categoryid']);
 $table=FetchRow($sql,$data);
 // var_dump($table);
@@ -77,7 +77,7 @@ $table=FetchRow($sql,$data);
                                                     </div>
                                                 </div>
                                                 <div class="product-brief">
-                                                    <h2><a href="catelog.php"><?= $value['title']; ?></a></h2>
+                                                    <h2><a href="catelog.php"><?= $value['name']." ". $value['surname'] ?></a></h2>
                                                     <p><?= $value['slogan']; ?></p>
                                                     <!-- <h3>5 years of </h3> -->
                                                 </div>

@@ -29,10 +29,11 @@ try
     for($i=0;$i<$temp;$i++)
     {
 
-        $sub_sql="SELECT catelogid,c.amount,c.title,COUNT(*) as 'bookings' from service_book ,catelog c WHERE catelogid=? AND c.id=?";
+        $sub_sql="SELECT catelogid,c.amount,c.title,COUNT(*) as 'bookings' from service_book sb,catelog c WHERE catelogid=? AND c.id=? and sb.service_proid=?";
         $sub_stat=$db->prepare($sub_sql);
         $sub_stat->bindparam(1,$tot_catelog_id[$i]['catelogid']);
         $sub_stat->bindparam(2,$tot_catelog_id[$i]['catelogid']);
+        $sub_stat->bindparam(3,$_SESSION['service_id']);
         $sub_stat->setFetchMode(PDO::FETCH_ASSOC);
         $sub_stat->execute();
         $line_chart_data=$sub_stat->fetchAll();

@@ -1,6 +1,11 @@
 <?php
 require_once("inc2/check_service_login.php");
 require_once("inc2/header.php");
+require_once("../inc/connection.php");
+$sql="SELECT name,surname from service_provider where id=?";
+$data=[$_SESSION['service_id']];
+$sername=FetchRow($sql,$data);
+// var_dump($sername);
 ?>
 <style>
     * {
@@ -24,7 +29,7 @@ require_once("inc2/header.php");
                 <div class="container-fluid">
                     <div class="header">
                         <h1 class="header-title">
-                            Service provider name - analysis
+                            <?php echo $sername[0]['name']." ".$sername[0]['surname']  ?> - analysis
                         </h1>
                         <?php
                         require_once("../inc/message.php");
